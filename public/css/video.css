@@ -1,0 +1,20 @@
+.main-container {
+    margin: 10px 20px;
+    content: "";
+    display: table;
+}
+.video-container {
+    width: 66.666667%;
+    float: left;
+    background: #1c1c1c;
+    box-shadow: 0 1px 0 0 #212121, 0 0 0 1px #212121;
+}
+
+aside {
+    width: 33.33333333%;
+    float: right;
+}
+
+.video-player video {
+    width: 100%;
+}
