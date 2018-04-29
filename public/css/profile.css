@@ -66,13 +66,12 @@ header {
 .profile--container {
 }
 
-.profile--header, {
-  background-color: #212121;
-  padding: 20px;
+.profile--header {
   display: flex;
-  /* position: relative; */
   flex-direction: column;
   align-items: center;
+  background-color: #212121;
+  padding: 20px;
   
 }
 
@@ -102,7 +101,8 @@ header {
 }
 
 .profile--subscription {
-  
+  display: flex;
+  justify-content: center;
 }
 
 .subscribe-amount {
@@ -187,13 +187,13 @@ header {
   left: 0;
   border-radius: 8px;
   transform: scaleX(1);
-  transition: transform .2s ease;
+  transition: transform .5s ease;
 }
 
 .nav--active::after {
   background-color: #04abf2 !important;
 }
-.profile--videos, .profile--play-lists {
+.profile--videos, .profile--play-lists, .profile--liked-videos, .profile--about {
   margin: 0 15px;
   margin-top: 20px;
   padding: 10px;
@@ -231,22 +231,25 @@ header {
   width: 100%;
 }
 
-.video-thumb:hover svg {
-  visibility: visible;
-  transition: all .2s ease;
-  transform: scale(1);
-  width: 40px;
-  height: 40px;
-  transform: translate(50% , 50%);
-}
 
 .video-thumb svg {
   visibility: hidden;
   position: absolute;
   bottom: 50%;
   right: 50%;
-  transform: scale(0);
+  width: 0;
+  height: 0;
   color: #fff;
+  transform: scale(0);
+}
+
+.video-thumb:hover svg {
+  visibility: visible;
+  width: 40px;
+  height: 40px;
+  transform: scale(1);
+  transform: translate(50% , 50%);
+  transition: all 0.5s ease;
 }
 
 .video-duration {
@@ -315,23 +318,81 @@ header {
 }
 
 .play-list--title {
-
+  /* margin-bottom: 20px; */
 }
 
-.profile--liked-videos {
-
+.play-list--title h4 {
+  font-size: 16px;
+  line-height: 2.4;
+  font-weight: 100;
+  font-family: arial;
 }
 
 .profile--about {
-
+  padding: 25px 15px;
+  margin-bottom: 25px;
 }
 
-.about--bio {
+.profile--about h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
 
+.profile--about>h3>svg {
+  background: #047cac;
+  padding: 6px;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.profile--about ul {
+  list-style: none;
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+.profile--about ul svg {
+  color: #696969;
+  margin-right: 5px;
+}
+.about--bio {
+  margin: 11px 0;
+  font-size: 14px;
 }
 
 .about--social-links {
 
+}
+
+.about--social-links h4 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.about--social-links h4 svg {
+  padding: 6px;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icons a {
+  display: block;
+}
+
+.social-icons svg {
+  margin-right: 5px;
 }
 
 @media screen and (min-width: 460px) {
