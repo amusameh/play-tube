@@ -55,7 +55,8 @@ a {
 /* End of General style */
 
 .profile {
-
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 header {
@@ -116,7 +117,7 @@ header {
   border-radius: 3px;
   color: #fff;
   background-color: #3590d9;
-  margin-left: 6.5px;
+  margin-left: 10px;
   position: relative;
 }
 
@@ -148,7 +149,6 @@ header {
 }
 
 .profile--nav li {
-  /* border: 1px solid red; */
 }
 
 .profile--nav a {
@@ -193,6 +193,7 @@ header {
 .nav--active::after {
   background-color: #04abf2 !important;
 }
+
 .profile--videos, .profile--play-lists, .profile--liked-videos, .profile--about {
   margin: 0 15px;
   margin-top: 20px;
@@ -291,7 +292,6 @@ header {
 }
 
 .play-list--thumb {
-  /* margin-bottom: 25px; */
   position: relative;
 }
 
@@ -318,7 +318,6 @@ header {
 }
 
 .play-list--title {
-  /* margin-bottom: 20px; */
 }
 
 .play-list--title h4 {
@@ -338,7 +337,7 @@ header {
   font-weight: 500;
 }
 
-.profile--about>h3>svg {
+.profile--about>div>h3>svg {
   background: #047cac;
   padding: 6px;
   margin-right: 5px;
@@ -404,9 +403,66 @@ header {
   .profile--nav {
     margin: 0 25px;
   }
+  
+  .profile--nav ul {
+    justify-content: flex-start;
+  }
 
+  .profile--nav a {
+    width: 120px;
+  }
+  
   .video-title h4 {
     line-height: 2.4;
   }
+  
+}
 
+@media screen and (min-width: 650px) {
+  .profile--header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .profile--main-info {
+    flex-direction: row;
+  }
+  
+  .profile--avatar {
+    width: 40px;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+  
+  .profile--username {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .profile--avatar {
+    width: 90px;
+  }
+  
+  .profile--nav a {
+    width: 135px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .profile {
+    max-width: 970px;
+  }
+
+  .profile--about>div {
+    max-width: 475px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .profile {
+    max-width: 1170px;
+  }
 }
