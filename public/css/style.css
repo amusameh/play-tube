@@ -12,6 +12,11 @@ body {
 a {
     text-decoration: none;
 }
+
+li{
+    list-style: none;
+}
+
 .pull-right {
     float: right;
 }
@@ -43,12 +48,18 @@ a {
     border-color: #5e99dc;
 }
 
+.hidden {
+    display: none;
+}
+
 .btn-blue svg.feather {
     margin: -3.5px 4px 0 -1px;
     width: 17px;
     height: 17px;
 }
-
+svg {
+    cursor: pointer;
+}
 svg.feather {
     vertical-align: middle;
     margin-top: -4px;
@@ -74,3 +85,4 @@ svg:not(:root) {
     clear: both;
     display: table;
 }
+
