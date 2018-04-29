@@ -142,9 +142,9 @@ header {
 .profile--nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+  overflow: auto;
 }
 
 .profile--nav li {
