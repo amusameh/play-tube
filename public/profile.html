@@ -7,63 +7,90 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
   </head>
   <body>
     <main class="profile">
       <header>
-        <div class="profile--header">
-          <div class="profile--cover">
-          </div>
-          <div class="profile--main-info">
-            <img src="https://playtubescript.com/upload/photos/2018/02/lh6gXQzuRDzDYWpi4z2j_12_ada42da33b3d6dafc7b79ec3bd597781_image.png" alt="avatar" class="profile--avatar">
-            <h2 class="profile--username">Dean Doughous</h2>
-          </div>
-          <div class="profile--subscription">
-            <button class="btn btn-blue">
-              <svg class="feather feather-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>Subscribe<!--
-            --></button>
-            <span class="subscribe-amount">283</span>
-          </div>
+        <div class="profile--cover">
         </div>
-        <nav class="profile--nav">
-          <ul>
-            <li><a href="">Videos</a></li>
-            <li><a href="">PlayList</a></li>
-            <li><a href="">Liked Videos</a></li>
-            <li><a href="">About</a></li>
-          </ul>
-        </nav>
+          <div class="profile--header">
+            <div class="profile--main-info">
+              <img src="/public/images/avatar.png" alt="avatar" class="profile--avatar">
+              <a href="#">
+                <h2 class="profile--username">Deen Doughous</h2>
+              </a>
+            </div>
+            <div class="profile--subscription">
+              <button class="btn btn-blue">
+                <svg class="feather feather-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>Subscribe<!--
+              --></button>
+              <span class="subscribe-amount">283</span>
+            </div>
+          </div>
+          <nav class="profile--nav">
+            <ul>
+              <li><a class="nav--active" href="">Videos</a></li>
+              <li><a href="">PlayList</a></li>
+              <li><a href="">Liked Videos</a></li>
+              <li><a href="">About</a></li>
+            </ul>
+          </nav>
       </header>
       <section class="profile--videos">
         <h3 class="invisible">Videos</h3>
         <div class="profile--video-wrapper">
-          <a class="video-thumb" href="">
-            <img src="" alt="video-thumb">
-            <span class="video-duration">3:31</span>
-            <svg class="feather feather-play-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a class="video-thumb" href="">
+          <div></div>
+          <img src="/public/images/assasins_creed.jpg"
+          alt="Assassin's Creed Origins Cinematic Trailer">
+          <span class="video-duration">3:31</span>
+          <svg class="feather feather-play-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="10 8 16 12 10 16 10 8"></polygon>
-            </svg>
-          </a>
-          <a class="video-title" href="">
-            <h4>Assasin's Creed Original Cinematic Trailer</h4>
-          </a>
-          <div class="video-info">
-            <a href="">Deen Doughous</a><br>
-            <span>197 Views</span><span class="bold">.</span><span>13 days ago</span>
-          </div>
+          </svg>
+        </a>
+        <a class="video-title" href="">
+          <h4>Assasin's Creed Original Cinematic Trailer</h4>
+        </a>
+        <div class="video-info">
+          <a href="">Deen Doughous</a><br>
+          <span>197 Views</span><span class="bold">.</span><span>13 days ago</span>
         </div>
+      </div>
+      <div class="profile--video-wrapper">
+        <a class="video-thumb" href="">
+          <div></div>
+          <img src="/public/images/assasins_creed.jpg" alt="Assassin's Creed Origins Cinematic Trailer">
+          <span class="video-duration">3:31</span>
+          <svg class="feather feather-play-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+        </a>
+        <a class="video-title" href="">
+          <h4>Assasin's Creed Original Cinematic Trailer</h4>
+        </a>
+        <div class="video-info">
+          <a href="">Deen Doughous</a>
+          <br>
+          <span>197 Views</span>
+          <span class="bold">.</span>
+          <span>13 days ago</span>
+        </div>
+      </div>
       </section>
       <section class="profile--play-lists">
         <h3 class="invisible">play lists</h3>
         <a href="">
           <div class="play-list--thumb">
-            <img src="" alt="play list thumb">
+            <img src="/public/images/play_list.jpg" alt="play list thumb">
             <div class="play-list--count">
               <span class="bold">2</span>
               <svg width="17" height="17" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">

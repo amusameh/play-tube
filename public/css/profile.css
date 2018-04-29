@@ -1,7 +1,20 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #eee;
+    
+}
+
+a {
+  color: #eee;
+  text-decoration: none;
 }
 
 /* hide element from screen readers */
@@ -19,13 +32,6 @@
   font-weight: bold;
 }
 
-.btn {
-
-}
-
-.btn-blue {
-
-}
 
 .feather {
 
@@ -49,68 +55,232 @@
 /* End of General style */
 
 .profile {
+
 }
 
-.profile--header {
-  width: 100vw;
-  /* padding-top: 150px;  */
+header {
+  margin: 0 15px;
+  
+}
+
+.profile--container {
+}
+
+.profile--header, {
+  background-color: #212121;
+  padding: 20px;
+  display: flex;
+  /* position: relative; */
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .profile--cover {
   background-image: url('https://playtubescript.com/upload/photos/d-cover.jpg');
   background-repeat: no-repeat;
-  height: 150px;
+  height: 160px;
 }
 
 .profile--main-info {
-  /* margin: 150px auto 0 auto; */
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile--avatar {
   max-width: 90px;
   border-radius: 50%;
+  margin-bottom: 20px;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
 }
 
 .profile--username {
-
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .profile--subscription {
-
+  
 }
 
 .subscribe-amount {
+  padding: 10px 12px;
+  width: auto;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .007px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #3590d9;
+  margin-left: 6.5px;
+  position: relative;
+}
 
+.subscribe-amount::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #696969;
+  position: absolute;
+  left: -14px;
+  top: 10px;
 }
 
 .profile--nav {
-
+  background-color: #212121;
+  border: 1px solid #424242;
+  border-right: none;
+  border-left: none;
 }
 
-.profile--videos {
+.profile--nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+.profile--nav li {
+  /* border: 1px solid red; */
+}
+
+.profile--nav a {
+  height: 40px;
+  width: 90px;
+  line-height: 40px;
+  text-align: center;
+  display: block;
+  position: relative;
+  
+}
+
+.nav--active {
+  box-shadow: inset 0 -2px #04abf2;
+}
+
+.profile--nav a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #929292;
+  bottom: 0;
+  left: 0;
+  border-radius: 8px;
+  transform: scaleX(0);
+}
+
+.profile--nav a:hover::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #929292;
+  bottom: 0;
+  left: 0;
+  border-radius: 8px;
+  transform: scaleX(1);
+  transition: transform .2s ease;
+}
+
+.nav--active::after {
+  background-color: #04abf2 !important;
+}
+.profile--videos, .profile--play-lists {
+  margin: 0 15px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #212121;
 }
 
 .profile--video-wrapper {
-
+  margin-bottom: 25px;
 }
 
 .video-thumb {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
 
+.video-thumb div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.video-thumb div:hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.video-thumb img {
+  height: 190px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.video-thumb:hover svg {
+  visibility: visible;
+  transition: all .2s ease;
+  transform: scale(1);
+  width: 40px;
+  height: 40px;
+  transform: translate(50% , 50%);
+}
+
+.video-thumb svg {
+  visibility: hidden;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: scale(0);
+  color: #fff;
 }
 
 .video-duration {
-
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 11px;
+  padding: 1px;
+  padding-right: 1px;
+  padding-left: 1px;
+  border-radius: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .video-title {
+}
 
+.video-title h4 {
+  font-size: 13px;
+  margin-bottom: 3px;
+  font-weight: 600;
+  font-family: sans-serif;
+  line-height: 1.3em;
+  max-height: 2.6em;
 }
 
 .video-info {
-
+  font-size: 11px;
+  color: #eee;
+  line-height: 1.4;
+  margin-top: 5px;
 }
 
 .profile--play-lists {
@@ -118,11 +288,30 @@
 }
 
 .play-list--thumb {
+  /* margin-bottom: 25px; */
+  position: relative;
+}
 
+.play-list--thumb img {
+  width: 100%;
+  object-fit: cover;
+  height: 190px;
 }
 
 .play-list--count {
-
+  position: absolute;
+  height: 100%;
+  width: 40%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.play-list--count svg {
+  fill: #eee;
 }
 
 .play-list--title {
@@ -142,5 +331,21 @@
 }
 
 .about--social-links {
+
+}
+
+@media screen and (min-width: 460px) {
+  .profile--header {
+    margin: -55px 25px 0;
+    padding: 40px;
+  }
+
+  .profile--nav {
+    margin: 0 25px;
+  }
+
+  .video-title h4 {
+    line-height: 2.4;
+  }
 
 }
