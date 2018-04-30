@@ -197,12 +197,13 @@ header {
 .profile--videos, .profile--play-lists, .profile--liked-videos, .profile--about {
   margin: 0 15px;
   margin-top: 20px;
-  padding: 10px;
+  padding: 15px 15px 0 0;
   background-color: #212121;
 }
 
 .profile--video-wrapper {
   margin-bottom: 25px;
+  padding-left: 15px;
 }
 
 .video-thumb {
@@ -447,6 +448,11 @@ header {
   
   .profile--nav a {
     width: 135px;
+  }
+
+  .profile--video-wrapper {
+    width: 50%;
+    display: inline-block;
   }
 }
 
