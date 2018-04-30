@@ -454,16 +454,33 @@ header {
     width: 50%;
     display: inline-block;
   }
+  
+  .play-list--thumb {
+    width: 50%;
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 990px) {
   .profile {
     max-width: 970px;
   }
-
+  
   .profile--about>div {
     max-width: 475px;
     margin: 0 auto;
+  }
+  
+  .profile--video-wrapper {
+    width: 25%;
+  }
+
+  .video-title h4 {
+    line-height: 1.4;
+  }
+
+  .play-list--thumb {
+    width: 25%;
   }
 }
 
