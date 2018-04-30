@@ -44,8 +44,11 @@
 }
 
 body {
-  background-color: darkgray;
+  background-color: #131313;
   color: white;
+  height: 10000px;
+  font-family: Roboto, sans-serif;
+  font-size: 400;
 }
 
 .left {
@@ -170,7 +173,6 @@ svg {
 
 .hero {
   background: url('../images/hero.jpg');
-  height: 200px;
   background-size: cover;
   background-position: top;
   padding-top: 20px;
@@ -212,6 +214,113 @@ svg {
 .not-in-phone {
   display: none;
 }
+
+
+
+
+
+
+/* ================================================ */
+/* ========== Trending sections styles ============ */
+/* ================================================ */
+
+
+/* main {
+  width: 85%;
+  margin: 0 auto;
+} */
+
+.trend {
+  background-color: #212121;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px; 
+}
+
+.fa-chart-line {
+  color: #2196F3;
+}
+
+.title .trend-header:before {
+  /* background-image:  */
+}
+
+.title .more {
+  display: flex;
+  padding: 3px 2px 2px 5px;
+  background: #444;
+  line-height: 1.7;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+.title .more {
+  vertical-align: middle;
+
+}
+
+
+.video {
+  margin-bottom: 50px;
+}
+
+.video:last-of-type {
+  margin-bottom: 0;
+}
+
+.trend-cover {
+  width: 100%;
+  display: inline-block;
+}
+
+.trend .video .overlay {
+  position: relative;
+}
+
+.trend .video .overlay svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.trend .video .overlay:hover svg {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 461px) {
+  .video {
+    width: 45%;
+    display: inline-block;
+  }
+
+}
+
+
+
+
+
+
 
 
 @media screen and (max-width: 885px) {
