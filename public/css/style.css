@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -85,4 +86,3 @@ svg:not(:root) {
     clear: both;
     display: table;
 }
-
