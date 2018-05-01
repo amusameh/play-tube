@@ -4,33 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-  <title>Video Tube</title>
-
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/phone.css">
 </head>
 <body>
-  <header id="header" class="header">
-    <div class="header-top">
-      <img src="images/logo.png" alt="logo" class="logo">
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="search" id="searchBar" class="search-bar" placeholder="What are you going to watch!">
-      </div>
-      <div class="login-icon">
-        <ul class="guest-view">
+  <header class="header">
+    <div class="container">
+
+      <nav class="navbar">
+        <img src="./images/logo.png" alt="" class="logo">
+        <div class="search-box not-in-phone">
+          <i class="fas fa-search"></i>
+          <input type="search" id="searchBar" class="search-bar" placeholder="What are you going to watch!">
+        </div>
+        <ul class="menu">
           <li>
             <a href="">
-                <svg fill="#009da0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="feather feather-bulb"><path d="M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63Z"></path></svg>
+              <svg fill="#009da0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="feather feather-bulb"><path d="M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63Z"></path>
+              </svg>
             </a>
           </li>
-          <li>
-            <a href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </a>
+          <li class="dropmenu-search phone-only"><a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </a>
+          <div class="search-box-phone phone-only">
+            <input type="search" name="" id="" placeholder="Search for videos">
+          </div>
+
           </li>
+          <li class="drop"><a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span class="caret"></span>
+          </a>
+          <!-- <ul class="drop-menu"> -->
+            <li><a href="">Login</a></li>
+            <li><a href="">Sign Up</a></li>
+          </ul>
+        </li>
         </ul>
-      </div>
+      </nav>
     </div>
     <div class="navbar-top container not-in-phone">
       <ul class="menu">
@@ -59,13 +73,13 @@
       </ul>
       <ul class="updown-menu">
         <li>
-          <a href="./upload-video.html">
+          <a class="btn btn-upload" href="./upload-video.html">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
             <span>Upload</span>
           </a>
         </li>
         <li>
-          <a href="./import-video.html">
+          <a class="btn btn-import" href="./import-video.html">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download-cloud"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
             <span>Import</span>
           </a>
@@ -73,5 +87,319 @@
       </ul>
     </div>
   </header>
-</body>
-</html>
+
+<div class="mainImg">
+  <div class="featured2">
+    <img src="./images/hero.jpg" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" class="feather feather-award">
+      <circle cx="12" cy="8" r="7"></circle>
+      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+    </svg>
+    <div class="profile">  
+      <div class="profile-left">
+        <img class="imgProfile" src="https://playtubescript.com/upload/photos/2018/02/lh6gXQzuRDzDYWpi4z2j_12_ada42da33b3d6dafc7b79ec3bd597781_image.png" alt="">
+        <a href="">RAMPAGE - OFFICIAL TRAILER 1 [HD]</a>
+      </div>
+      <div class="profile-right">
+        <p>300 Views</p>
+        <div class="video-likes">
+          <div class="video-likes-thumbs-up">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up">
+                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+            </svg> <span class="likes" id="likes">8</span>
+          </div>
+          <div class="video-likes-thumbs-down">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down" style="margin-left: 10px;">
+              <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+            </svg> <span class="likes" id="dislikes">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <main class="container cf">
+
+
+    <!-- start of trend section -->
+    <section class="cat trend" id="trend">
+      <div class="container-something">
+        <div class="title">
+          <h2 class="trend-header"><i class="fas fa-chart-line"></i> Trending</h2>
+          <a class="more" href="#">Explore more <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        </div>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3><a href="#">Britain Got Talent translated</a></h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+      </div>
+    </section>
+    <!-- End of trend section -->
+
+    <!-- start of Top-Videos section -->
+    <section class="cat trend" id="trend">
+      <div class="container-something">
+        <div class="title">
+          <h2 class="trend-header"><i class="fas fa-chart-line"></i> Trending</h2>
+          <a class="more" href="#">Explore more <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        </div>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3><a href="#">Britain Got Talent translated</a></h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+      </div>
+    </section>
+   
+      <!-- End of Top videos section -->
+
+       <!-- start of latest section -->
+    <section class="cat trend latest-videos cf" id="latest">
+      <div class="container-something">
+        <div class="title">
+          <h2 class="trend-header"><i class="fas fa-video"></i>Latest videos</h2>
+          <a class="more" href="#">Explore more <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        </div>
+        <article id="video-latest" class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3><a href="#">Britain Got Talent translated</a></h3>
+        </article>
+        <div class="latest-left">
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+        </article>
+      </div>
+      </div>
+    </section>
+   
+      <!-- End of latest videos section -->
+
+
+      <!-- start of Category section -->
+    <section class="cat trend category" id="category">
+      <div class="container-something">
+        <div class="title">
+          <h2 class="trend-header"><i class="fas fa-chart-line"></i> Trending</h2>
+          <a class="more" href="#">Explore more <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+        </div>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3><a href="#">Britain Got Talent translated</a></h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3><a href="#">Britain Got Talent translated</a></h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+        <article class="video">
+          <a href="">
+            <div class="overlay">
+              <img class="trend-cover" src="https://i.ytimg.com/vi/3zY-gvaKqII/mqdefault.jpg" alt="video cover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </a>
+          <h3>Britain Got Talent translated</h3>
+          <p>Abdallah</p>
+          <p><span>27 Views</span> . <span>1 day ago</span></p>
+        </article>
+      </div>
+    </section>
+    <!-- End of Catagory section -->
+  </main>
+
+
+  <footer class="footer">
+    <ul class="footer-menu">
+      <li><a href="">Terms of use</a></li>
+      <li><a href="">Privacy Policy</a></li>
+      <li><a href="">About us</a></li>
+      <li><a href="">Contact us</a></li>
+    </ul>
+    <hr>
+    <p class="copy">Copyright &copy; 2018 PlayTube. All rights reserved</p>
+    <ul class="footer-lang">
+      <li><a href="">Ar</a></li>
+      <li><a href="">En</a></li>
+    </ul>
+  </footer>
+  </body>
+  </html>
