@@ -46,7 +46,6 @@
 body {
   background-color: #131313;
   color: white;
-  height: 10000px;
   font-family: Roboto, sans-serif;
   font-size: 400;
 }
@@ -94,7 +93,7 @@ svg {
   align-items: center;
   padding: 5px 0;
   position: relative;
-  border: 1px solid #585f5a;
+  border-bottom: 1px solid #585f5a;
 }
 
 .logo {}
@@ -271,6 +270,8 @@ svg {
 
 .video {
   margin-bottom: 50px;
+  width: 100%;
+  display: block;
 }
 
 .video:last-of-type {
@@ -301,34 +302,109 @@ svg {
 
 }
 
+/* lastest videos section */
 
 
 
+/* ================================================ */
+/* ================= Footer styles ================ */
+/* ================================================ */
 
+.footer {
+  text-align: center;
+  padding: 60px 0;
+}
 
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .footer-menu {
+  padding: 30px 0;
+  
+}
+
+.footer .footer-menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer hr {
+  background: #ccc;
+  height: 1px;
+  width: 80%;
+  margin: 10px auto;
+  /* border: 1px solid #ccc; */
+}
+
+.footer .footer-lang {
+  margin-top: 20px;
+}
+
+.footer .footer-lang li {
+  display: inline-block;
+  margin-right: 10px;
+}
 
 
 @media screen and (min-width: 461px) {
   .video {
     width: 45%;
     display: inline-block;
+    margin-right: 4%;
+  }
+
+
+
+section.cat {
+  width: 100%;
+}
+.latest-videos .video {
+  /* display: inline-block; */
+}
+
+.latest-videos > .video:first-of-type {
+  width: 70% !important;
+  height: 100%;
+  float: left;
+}
+.latest-left {
+  float: right;
+  width: 26%;
+}
+
+.latest-left .video {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.latest-left .latest-videos {
+  float: none;
+}
+
+#video-latest {
+  width: 70%;
+}
+}
+
+@media screen and (min-width: 992px) {
+  .cat {
+    width: 45%;
+    float: left;
+    /* margin-left: 4%; */
+  }
+
+  .category .video {
+    width: 23%;
+    margin-right: 1%;
   }
 
 }
-
-
-
-
-
-
-
 
 @media screen and (max-width: 885px) {
   .updown-menu li span {
     display: none;
   }
 }
-
 
 @media screen and (min-width: 761px) {
   /* ================================================ */
