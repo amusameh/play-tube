@@ -1,214 +1,88 @@
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
 
-.cf:before,
-.cf:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
-}
-
-.cf:after {
-  clear: both;
-}
-
-/**
-  * For IE 6/7 only
-  * Include this rule to trigger hasLayout and contain floats.
-  */
-
-.cf {
-  *zoom: 1;
-}
-
-
-
-
-/* ================================================ */
-/* ================= General styles ================ */
-/* ================================================ */
-*,
-*:after,
-*::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+* {
+    margin: 0;
+    padding: 0;
+    
 }
 
 body {
-  background-color: darkgray;
-  color: white;
-}
+    background: #0b0b0b ;
 
-.left {
-  float: left;
-}
-.right {
-  float: right;
 }
 
 a {
-  color: white;
-  text-decoration: none;
+    text-decoration: none;
 }
 
-ul {
-  list-style: none;
+li{
+    list-style: none;
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
+.pull-right {
+    float: right;
 }
 
+.pull-left {
+    float: left;
+}
+
+.btn {
+    padding: 8.7px 18px;
+    width: auto;
+    min-width: 90px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: .007px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 0;
+    transition: all 0.2s;
+    position: relative;
+    font-weight: 500;
+    border-radius: 3px;
+    outline: 0 !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background: #3590d9 !important;
+    border-color: #5e99dc;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-blue svg.feather {
+    margin: -3.5px 4px 0 -1px;
+    width: 17px;
+    height: 17px;
+}
 svg {
-  color: white;
+    cursor: pointer;
+}
+svg.feather {
+    vertical-align: middle;
+    margin-top: -4px;
+    width: 19px;
+    height: 19px;
 }
 
-/* ================================================ */
-/* ================= header styles ================ */
-/* ================================================ */
-
-.header {
-  background-color: #212121;
+svg:not(:root) {
+    overflow: hidden;
 }
 
-/* top nav */
-
-.header-top {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.line::after{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 97%;
+    background: #424242;
+    margin: 24px 0 18px 10px;
 }
 
-.logo {
-  display: block;
-}
-
-.search-box {
-  background: #3c3d3e;
-  padding: 7px;
-  width: 39%;
-  border-radius: 4px;
-  margin-left: -32%;
-}
-
-.search-bar {
-  border: none;
-  background: none;
-  outline: none;
-}
-
-
-.login-icon {
-  position: relative;
-}
-
-.login-icon .feather:after {
-  display: inline-block;
-  position: absolute;
-  top: 15px;
-  left: 26px;
-  width: 0;
-  height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  /* border-top: 4px solid\9; */
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  vertical-align: middle;
-  margin-left: 2px;
-  content: '';
-}
-
-.guest-view > li {
-  display: inline-block;
-}
-
-.guest-view > li:first-of-type {
-  border-radius: 50%;
-  background: #4285f4;
-  width: 25px;
-  height: 25px;
-}
-
-.guest-view li svg {
-  fill: #d9e7fd;
-}
-
-
-
-/* navbar styles */
-/* 
-.menu > li, .updown-menu > li {
-  float: left;
-}
-*/
-
-
-.navbar-top {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navbar-top .menu {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navbar-top .menu > li {
-  padding: 10px;
-  margin-left: 15px;
-}
-
-.navbar-top .menu > li:first-of-type {
-  padding-left: 0;
-  margin-left: 0;
-}
-
-.navbar-top .menu > li:last-of-type {
-  padding-right: 0;
-  margin-right: 0;
-}
-
-
-.menu .sub-menu {
-  position: absolute;
-  left: -9000px;
-  background-color: #212121;
-  padding-top: 30px;
-}
-
-.menu .sub-menu > li {
-  white-space: nowrap;
-  padding: 15px;
-}
-
-.menu .sub-menu > li:hover {
-  background: #333;
-}
-
-.menu li.cat {
-  position: relative;
-}
-
-.menu li.cat:hover .sub-menu {
-  position: absolute;
-  left: 0;
-} 
-
-.updown-menu {
-  display: flex;
-  justify-content: space-between;
+.clear {
+    content: '';
+    clear: both;
+    display: table;
 }
