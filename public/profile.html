@@ -34,14 +34,14 @@
           </div>
           <nav class="profile--nav">
             <ul>
-              <li><a class="nav--active" href="">Videos</a></li>
-              <li><a href="">PlayList</a></li>
-              <li><a href="">Liked Videos</a></li>
-              <li><a href="">About</a></li>
+              <li><a id="videos" class="nav--active" href="">Videos</a></li>
+              <li><a id="playList" href="">PlayList</a></li>
+              <li><a id="likedVideos" href="">Liked Videos</a></li>
+              <li><a id="about" href="">About</a></li>
             </ul>
           </nav>
       </header>
-      <section class="profile--videos">
+      <section id="videos-tab" class="profile--videos">
         <h3 class="invisible">Videos</h3>
         <div class="profile--video-wrapper">
         <a class="video-thumb" href="">
@@ -132,12 +132,30 @@
       </section>
       <section class="profile--play-lists">
         <h3 class="invisible">play lists</h3>
+        <div>
+          <a href="">
+            <div class="play-list--thumb">
+              <img src="/public/images/play_list.jpg" alt="play list thumb">
+              <div class="play-list--count">
+                <span class="bold">2</span>
+                <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1312 896q0 37-32 55l-544 320q-15 9-32 9-16 0-32-8-32-19-32-56v-640q0-37 32-56 33-18 64 1l544 320q32 18 32 55zm128 0q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"
+                  />
+              </svg>
+            </div>
+          </div>
+        </a>
+        <div class="play-list--title">
+          <h4>Test Play List</h4>
+        </div>
+      </div><!--
+      --><div>
         <a href="">
           <div class="play-list--thumb">
             <img src="/public/images/play_list.jpg" alt="play list thumb">
             <div class="play-list--count">
               <span class="bold">2</span>
-              <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="meet">
+              <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1312 896q0 37-32 55l-544 320q-15 9-32 9-16 0-32-8-32-19-32-56v-640q0-37 32-56 33-18 64 1l544 320q32 18 32 55zm128 0q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"
                 />
               </svg>
@@ -147,6 +165,7 @@
         <div class="play-list--title">
           <h4>Test Play List</h4>
         </div>
+      </div>
       </section>
       <section class="profile--liked-videos">
         <h3 class="invisible">Liked videos</h3>
@@ -252,8 +271,8 @@
           </div>
         </div>
       </div>
-        
       </section>
     </main>
+  <!-- <script src="/public/js/profile.js"></script> -->
   </body>
 </html>

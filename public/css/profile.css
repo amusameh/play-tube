@@ -12,6 +12,10 @@ body {
     
 }
 
+img {
+  margin-bottom: -4px;
+}
+
 a {
   color: #eee;
   text-decoration: none;
@@ -112,7 +116,7 @@ header {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: .007px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
   font-weight: 500;
   border-radius: 3px;
   color: #fff;
@@ -199,11 +203,13 @@ header {
   margin-top: 20px;
   padding: 15px 15px 0 0;
   background-color: #212121;
+  /* display: none; */
 }
 
 .profile--video-wrapper {
   margin-bottom: 25px;
   padding-left: 15px;
+  padding-bottom: 5px;
 }
 
 .video-thumb {
@@ -288,8 +294,10 @@ header {
   margin-top: 5px;
 }
 
-.profile--play-lists {
-
+.profile--play-lists>div{
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-bottom: 5px;
 }
 
 .play-list--thumb {
@@ -455,7 +463,7 @@ header {
     display: inline-block;
   }
   
-  .play-list--thumb {
+  .profile--play-lists>div {
     width: 50%;
     display: inline-block;
   }
