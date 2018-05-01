@@ -36,7 +36,7 @@
 /* ================================================ */
 
 *,
-*:after,
+*::after,
 *::before {
   box-sizing: border-box;
   padding: 0;
@@ -168,16 +168,16 @@ svg {
 
 /* hero section styles */
 
-.hero {
+/* .hero {
   background: url('../images/hero.jpg');
   height: 200px;
   background-size: cover;
   background-position: top;
   padding-top: 20px;
   /* position: relative; */
-}
+/* } */
 
-.featured {
+/* .featured {
   width: 40px;
   height: 40px;
   padding: 10px;
@@ -187,13 +187,13 @@ svg {
   justify-content: center;
   align-items: center;
   /* display: inline-block; */
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
   /* position: absolute;
   top: 20px;
   left: 20px; */
   /* z-index: 1000; */
-}
+} */
 
 .hero-content {
   padding: 50px 30px 40px;
@@ -212,7 +212,86 @@ svg {
 .not-in-phone {
   display: none;
 }
+/*Start MOhammed*/
+.mainImg{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 0, 0, 0.5)), url('./../images/hero.jpg');
+  background-size: cover;
+}
 
+.featured2{
+  position: relative;
+  margin: 0 auto;
+  max-width: 960px;
+  overflow: hidden;
+}
+
+.featured2 > img{
+  max-width: 960px;
+  min-width: 400px;
+  width: 100%;
+  margin-bottom: -4px;
+
+  /* background-color: linear-gradient(rgba(255, 0, 0, 0.5), rgba(110, 0, 0, 0.5)); */
+  transition: all .2s ease;
+}
+
+.featured2  > img:hover{
+  transform: scale(1.1);
+}
+
+.featured2 >svg{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+
+
+.profile-left{
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.profile-left .imgProfile{
+  display: block;
+  border-radius: 50%;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.profile-left a{
+  display: block;
+  color: red;
+  margin-top: 30px
+}
+
+.profile-right{
+  color: red;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+.video-likes{
+  display: inline-block;
+}
+
+.video-likes-thumbs-up{
+  display: inline-block;
+}
+
+.video-likes-thumbs-down {
+  display: inline-block;
+  margin-left: -12px
+}
+
+
+@media screen and (max-width: 500px) {
+  .profile-right{
+    display: none;
+  }
+}
 
 @media screen and (max-width: 885px) {
   .updown-menu li span {
@@ -334,7 +413,7 @@ svg {
   }
   .updown-menu li {
     display: block;
-    
+
   }
   .updown-menu li svg {
     width: 17px;
