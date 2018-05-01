@@ -179,6 +179,10 @@
   margin-right: 20px;
 }
 
+.video-options {
+  position: relative;
+}
+
 .video-published {
   margin-top: 18px;
   padding: 0 15px;
@@ -381,4 +385,120 @@ aside {
     width: 97%;
     background: #424242;
     margin: 18px 0 18px 0px;
+}
+
+.embed-text textarea {
+  width: 95%;
+  margin: 10px 18px 0 18px;
+  height: 47px;
+  resize: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 0px;
+  background: #0f0f0f;
+}
+
+.share-video .fa {
+  height: 15px;
+  width: 15px;
+  padding: 15px;
+  margin: 10px 5px;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.share-video .fa-facebook {
+  margin-left: 30px;
+}
+
+.share-video .fa:hover {
+  border: 1px solid #5e99dc;
+}
+
+.report-pop h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.report-pop p {
+  font-size: 13px;
+  color: #666;
+  margin: 6px 0 0 12px;
+}
+
+.report-pop  textarea {
+  width: 95%;
+  padding: 20px 0 20px 5px;
+  margin: 9px;
+  background: #161616;
+  color: #fff;
+}
+
+.button-pop .submit , .button-pop .create-playlist-btn {
+  background-color: rgb(38, 106, 171);
+  padding: 7px 20px;
+  margin: 0 9px;
+}
+
+.button-pop .submit:hover , .button-pop .create-playlist-btn:hover{
+  background-color: rgb(51, 113, 172);
+}
+
+.button-pop .cansle-report , .button-pop .cansle-create-playlist{
+  background-color: #898989;
+  padding: 7px 20px;
+  margin: 0 9px;
+}
+
+.button-pop .cansle-report:hover , .button-pop .cansle-create-playlist{
+  background-color: #6d6c6c;
+}
+
+.report-pop , .addto-pop , .create-playlist-pop{
+  background:  #0b0b0b;
+  width: 350px;
+  position: absolute;
+  right: 30px;
+  top: 8px;
+  z-index: 99;
+  padding: 10px;
+}
+
+.addto-pop p {
+  text-align: center;
+  padding: 46px;
+}
+
+.addto-pop h2 i {
+  margin: 0 0 0 12px;
+}
+
+.addto-pop h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+#video-views {
+  margin-left: 20px;
+}
+
+.create-playlist-pop input , .create-playlist-pop textarea , .create-playlist-pop select {
+  width: 95%;
+  padding: 9px;
+  margin: 9px 0 9px;
+  background: #121212;
+  color: #fff;
+}
+
+.create-playlist-pop textarea  {
+  height: 70px;
+}
+
+.create-playlist-pop select {
+  width: 100%;
+}
+
+.button-pop button i {
+  margin-right: 10px;
 }
