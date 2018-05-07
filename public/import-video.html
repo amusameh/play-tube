@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Import Video</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/import-video.css">
+</head>
+<body>
+    <div class="import">
+        <div class="import--video-header">
+            <h1>Upload new video</h1>    
+        </div>
+        <svg id="wave" viewBox="0 0 100 15"><path fill="#d84c47" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z"></path><path fill="#d84c47" d="M0 30 V12 Q30 17 55 12 T100 11 V30z"></path></svg>
+
+        <div class="import--video" >
+            <a href="#">
+                <i class="fas fa-cloud-download-alt"></i>
+               <div class="import-video-url">
+                <input type="text">
+                <i class="fas fa-link"></i>
+                <button class="btn import-btn" id="import">Upload</button>
+                <label for="import">YouTube, Dailymotion, Vimeo URLs, mp4</label>
+               </div>
+            </a>
+            
+        </div>
+  
+        <div class="import--video-details">
+            <form action="" method="post">
+                <label for="video-title">Video Title</label>
+                <input type="text" name="video-title" id="video-title">
+                <label for="video-description">Video Description</label>
+                <textarea name="video-description" id="video-description"></textarea>
+                <label for="video-category">Category</label>
+                <select name="video-category" id="video-category">
+                    <option value="film">Film</option>
+                    <option value="music">Music</option>
+                </select>
+                <label for="video-tags">Tags</label>
+                <input type="text" id="video-tags" name="video-tags">
+                <button class="btn btn--blue pull-right"><i class="far fa-check-circle"></i>Publish</button>
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

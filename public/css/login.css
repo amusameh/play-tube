@@ -1,0 +1,83 @@
+body {
+    background: #0b0b0b;
+    overflow: hidden;
+}
+
+.login  {
+    margin: 100px auto;
+    width: 50%;
+}
+.login  input , .login select {
+    display: block;
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
+    background: #161616;
+    color: #fff;
+    outline: none;
+  }
+
+  .login h1 , .login p  , .login a{
+      text-align: center;
+      color: #fff;
+  }
+
+  input[type=submit] {
+    margin: 0;
+    width: 105%;
+    cursor: pointer;
+  }
+
+  .squere , .squere1 , .squere2 {
+      width: 140px;
+      height: 140px;
+      background: #afa1a173;
+      border: 0;
+      border-radius: 20px;
+      position: absolute;
+      bottom: -200px;
+      right: 10%;
+      animation: squere 6s ease-in-out infinite;
+      z-index: -0009999;
+  }
+  .squere1 {
+    left: 30%; 
+    width: 110px;
+    height: 110px;
+    animation: squere 4s ease-in-out infinite;
+  }
+  .squere2 {
+    left: 60%;
+    width: 80px;
+    height: 80px; 
+    animation: squere 6s ease-in-out infinite;
+  }
+  .circle , .circle1 , .circle2 {
+    width: 30px;
+    height: 30px;
+    background: #afa1a173;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -200px;
+    left: 25%;
+    animation: squere 8s ease-in-out infinite;
+    z-index: -0009999;
+}
+.circle1 {
+    left: 10%;
+    width: 80px;
+    height: 80px; 
+    animation: squere 6s ease-in-out infinite;
+  }
+  .circle2 {
+    left: 80%;
+    width: 80px;
+    height: 80px; 
+    animation: squere 8s ease-in-out infinite;
+  }
+  @keyframes squere {
+   to {transform: translateY(10vh) rotate(10deg)}
+    from {transform: translateY(-140vh) rotate(100deg)}
+}
+
