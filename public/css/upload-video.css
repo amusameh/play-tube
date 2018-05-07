@@ -1,0 +1,89 @@
+.upload--video  {
+    width: 60vw;
+    height: 60vh;
+    background: #1c1c1c;
+    margin: -5vh auto;
+    z-index: 999999;
+
+}
+
+.upload--video i {
+    font-size: 7em;
+    color: #939393;
+    margin: 50px 0 0 23vw;
+
+}
+
+.upload--video i:hover {
+    color: #38b1f6
+}
+
+.upload-btn {
+    border-radius: 20px;
+    background: #38b1f6;
+    padding: 15px 60px;
+    margin: 20px 0 0 21vw;
+}
+
+h4,h5,h1{
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.upload--video-header {
+    background: #cc5647;
+    height: 140px;
+    padding: 20px 0 0px 0;
+}
+
+#wave {
+    position: absolute;
+    top: 139px;
+    transform: rotate(180deg);
+    z-index: -9;
+}
+
+.upload--video-form {
+    width: 60vw;
+    background: #1c1c1c;
+    margin: -5vh auto;
+    z-index: 999999;
+
+}
+
+label , input ,textarea, select , .progress--upload{
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+    width: 80%;
+    padding: 10px;
+    background: #161616;
+    outline: none;
+    color: #fff;
+}
+
+label {
+    padding: 20px 0 0 0;
+    margin: -15px auto;
+    background: transparent;
+}
+
+.btn--blue {
+    background: #38b1f6;
+    margin: 10px 60px;
+    text-align: left;
+    padding: 10px;
+}
+
+.btn--blue i {
+    margin-right: 3px
+}
+textarea{
+    height: 100px;
+}
+
+.progress--upload {
+    height: 20px;
+    margin-top: 20px
+}
