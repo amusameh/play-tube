@@ -10,8 +10,7 @@
 .upload--video i {
     font-size: 7em;
     color: #939393;
-    margin: 50px 0 0 23vw;
-
+    margin: 50px 0 0 25vw;
 }
 
 .upload--video i:hover {
@@ -22,7 +21,7 @@
     border-radius: 20px;
     background: #38b1f6;
     padding: 15px 60px;
-    margin: 20px 0 0 21vw;
+    margin: 20px 0 0 23vw;
 }
 
 h4,h5,h1{
@@ -85,5 +84,25 @@ textarea{
 
 .progress--upload {
     height: 20px;
-    margin-top: 20px
+    position: absolute;
+    top: -15px;
+    left: 55px;
+    margin-top: 15px;
+}
+.progress--upload #progrees {
+    display: block;
+    width: 90%;
+    height: 3px;
+    border-radius: 10px;
+    background: red;
+    margin-top: -2px;
+}
+.upload--video-form {
+    position: relative;
+}
+
+.progress--upload #progrees--percent {
+    width: 35px;
+    margin-top: -9px;
+    float: right;
 }

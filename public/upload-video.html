@@ -16,7 +16,7 @@
         </div>
         <svg id="wave" viewBox="0 0 100 15"><path fill="#d84c47" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z"></path><path fill="#d84c47" d="M0 30 V12 Q30 17 55 12 T100 11 V30z"></path></svg>
 
-        <div class="upload--video hidden" >
+        <div class="upload--video " >
             <a href="#">
                 <i class="fas fa-cloud-upload-alt"></i>
                 <h4>Drag & Drop video</h4>
@@ -25,9 +25,12 @@
             </a>
         </div>
     </div>
-    <div class="upload--video-form">
+    <div class="upload--video-form hidden">
         <form action="" method="post">
-            <div class="progress--upload"></div>
+            <div class="progress--upload">
+                <span id="progrees"></span>
+                <span id="progrees--percent">100%</span>
+            </div>
             <label for="video-title">Video Title</label>
             <input type="text" name="video-title" id="video-title">
             <label for="video-description">Video Description</label>
@@ -43,5 +46,7 @@
             <div class="clear"></div>
         </form>
     </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/dom.js"></script>
 </body>
 </html>
