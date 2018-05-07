@@ -1,0 +1,122 @@
+#wave {
+    position: absolute;
+    top: 139px;
+    transform: rotate(180deg);
+    z-index: -9;
+}
+
+.import--video-header {
+    background: #cc5647;
+    height: 140px;
+    padding: 20px 0 0px 0;
+}
+
+.import--video  {
+    width: 80vw;
+    height: 60vh;
+    background: #1c1c1c;
+    margin: -5vh auto;
+    z-index: 999999;
+
+}
+
+.import--video .fa-cloud-download-alt {
+    font-size: 7em;
+    color: #939393;
+    margin: 50px 0 0 25vw;
+}
+
+.import--video .fa-cloud-download-alt:hover {
+    color: #38b1f6
+}
+
+.import-btn {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #38b1f6;
+    padding: 15px 60px;
+    margin: 0 5px 0 0px;
+    display: inline-block;
+    position: absolute;
+    right: 45px;
+    top: 2px;
+
+}
+.import--video  input {
+    display: inline-block;
+    margin: 0 0 0 30px;
+    padding: 15px 50px;
+    border-radius: 20px;
+    width: 80%;
+    outline: none;
+}
+
+
+h4,h5,h1{
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.import--video {
+    position: relative;
+}
+
+.import--video .fa-link {
+    font-size: 2em;
+    color: #939393;
+    position: absolute;
+    top: 8px;
+    left: 45px;
+}
+
+.import-video-url {
+    margin-top: 100px;
+    position: relative;
+}
+.import-video-url label {
+    color: #fff;
+    position: absolute;
+    top: 54px;
+    left: 50px;
+    font-size: 0.7em;
+}
+
+.import--video-details {
+    width: 80vw;
+    height: 60vh;
+    background: #1c1c1c;
+    margin: -5vh auto;
+    z-index: 999999;
+}
+
+label , input ,textarea, select , .progress--upload{
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+    width: 80%;
+    padding: 10px;
+    background: #161616;
+    outline: none;
+    color: #fff;
+}
+
+label {
+    padding: 20px 0 0 0;
+    background: transparent;
+}
+
+.btn--blue {
+    background: #38b1f6;
+    margin: 10px 60px;
+    text-align: left;
+    padding: 10px;
+}
+
+.btn--blue i {
+    margin-right: 3px
+}
+textarea{
+    height: 100px;
+}
+
