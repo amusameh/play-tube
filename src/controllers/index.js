@@ -10,7 +10,7 @@ router.get('/', home.get);
 router.get('/login', login.get);
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import', importvideo.get);
-router.post('/import-vid-info', importvideo.getInfo);
+router.get('/import-video', importvideo.get);
+router.get('/import-vid-info', importvideo.getInfo);
 
 module.exports = router;

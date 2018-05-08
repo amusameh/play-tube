@@ -1,6 +1,38 @@
-<div class="import__container">
-  <form action="/import-vid-info" method="post">
-    <input id="importLink" type="text" name="import-link">
-    <button id="importBtn" class="import__button">Fetch Video</button>
-  </form>
-</div>
+<div class="import">
+  <div class="import--video-header">
+    <h1>Upload new video</h1>
+  </div>
+  <svg id="wave" viewBox="0 0 100 15">
+    <path fill="#d84c47" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z"></path>
+    <path fill="#d84c47" d="M0 30 V12 Q30 17 55 12 T100 11 V30z"></path>
+  </svg>
+  <div class="import--video">
+      <i class="fas fa-cloud-download-alt"></i>
+      <form action="/import-vid-info" method="GET" class="import-video-url">
+        <input type="text" name="videoUrl">
+        <i class="fas fa-link"></i>
+        <label for="import">YouTube</label>
+        <input class="btn import-btn" id="import" type="submit" value="Upload">
+      </form>
+  </div>
+  {{#if wrongLink}}
+  <p class="error-msg">invalid link,, only YouTube videos are allowed for now</p>
+  {{/if}}
+  {{#if getValues}}
+  <div class="import--video-details">
+    <form action="" method="post">
+      <label for="video-title">Video Title</label>
+      <input type="text" name="video-title" id="video-title" value="{{data.title}}">
+      <label for="video-description">Video Description</label>
+      <textarea name="video-description" id="video-description">{{data.description}}</textarea>
+      <label for="video-category">Category</label>
+      <select name="video-category" id="video-category">
+        <option value="film">Film</option>
+        <option value="music">Music</option>
+      </select>
+      <button class="btn btn--blue pull-right" type="submit">
+        <i class="far fa-check-circle"></i>Publish
+      </button>
+    </form>
+  </div>
+  {{/if}}
