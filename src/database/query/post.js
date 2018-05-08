@@ -11,14 +11,17 @@ const addUser = (username, email, password, sex, cb) => {
   });
 };
 
-const getUser = () => {
+const postImport = (data, cb) => {
+  const { userId, title, description, link, source, posterUrl, category } = data;
   const sql = {
-    text: 'SELECT * FROM users'
+    text: 'INSERT INTO videos (user_id, title, description, link, source, poster_url, category) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+    values: [userId, title, description, link, source, posterUrl, category]
   }
-  dbConnection.query('SELECT * FROM users', (err, result) => {
-    if(err) throw new Error(err, 'ahmed');
-    console.log(result.rows);
-    
+  dbConnection.query(sql, (err, result) => {
+    if(err) return cb(err);
+    console.log('query postImport result', result.rows);
+    cb(null, "you've add a new video succesfully");
+
   })
 }
-module.exports = { addUser, getUser };
+module.exports = { addUser, postImport };
