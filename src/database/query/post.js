@@ -6,7 +6,7 @@ const addUser = (username, email, password, sex, cb) => {
     values: [username, email, password, sex]
   }
   dbConnection.query(sql, (err, result) => {
-    if(err) return cb( new Error('add User error ', err));
+    if(err) return cb(err);
     cb(null, result);
   });
 };

@@ -2,17 +2,18 @@ const request = require('request');
 const getVideoId = require('get-video-id');
 
 const { postImport } = require('./../database/query/post');
+const { generatevidId } = require('./general');
 
 let videoUrl = '';
 let videoSrc = '';
 let linkInfo = '';
 
 exports.get = (req, res) => {
-  res.render('importvid', {importVid: true});
+  console.log(generatevidId());
+  res.render('importvid', { importVid: true });
 }
 
 exports.getInfo = (req, res) => {
-  console.log(req.query);
   if(Object.keys(req.query).length > 0) {
     linkInfo = getVideoId((req.query.videoUrl).toString());
   } else {
