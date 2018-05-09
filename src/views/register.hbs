@@ -1,3 +1,14 @@
+
+{{#if errors}}
+<ul>
+  {{#each errors}}
+    <li>{{this.msg}}</li>
+  {{/each}}
+
+</ul>
+{{/if}}
+
+
 <form action="/register" method="POST">
   <label for=""> username
    <input type="text" name="username">
@@ -6,8 +17,11 @@
   <label for="email">Email</label>
   <input type="email" name="email" id="email">
   
-  <label for="">password</label>
+  <label for="psw">password</label>
   <input type="password" name="password" id="psw">
+
+  <label for="pswMatch">password</label>
+  <input type="password" name="passwordMatch" id="pswMatch">
 
   <label for="sex">sex</label>
   <input type="text" name="sex" id="sex">
