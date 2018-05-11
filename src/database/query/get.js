@@ -23,7 +23,6 @@ const getUserById = (id, cb) => {
     if(err) {
       cb(err);
     } else {
-      console.log('result.row id', result.rows);
       cb(null, result.rows)
     }
   });

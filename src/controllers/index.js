@@ -12,7 +12,7 @@ const login = require('./login');
 const get = require('../database/query/get')
 
 // Get Homepage
-router.get('/', ensureAuthenticated, home.get);
+router.get('/', home.get);
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
@@ -66,8 +66,8 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import-video', importvideo.get);
-router.get('/import-vid-info', importvideo.getInfo);
+router.get('/import-video',ensureAuthenticated, importvideo.get);
+router.get('/import-vid-info',ensureAuthenticated, importvideo.getInfo);
 router.post('/import-vid-info', importvideo.post);
 
 module.exports = router;
