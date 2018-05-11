@@ -1,5 +1,4 @@
-const {Pool} = require('pg');
-// const url = require('url');
+const { Pool } = require('pg');
 
 require('env2')('./config.env');
 

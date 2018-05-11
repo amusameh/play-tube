@@ -1,0 +1,57 @@
+<div class="import">
+  <div class="import--video-header">
+    <h1>Upload new video</h1>
+  </div>
+  <svg id="wave" viewBox="0 0 100 15">
+    <path fill="#d84c47" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z"></path>
+    <path fill="#d84c47" d="M0 30 V12 Q30 17 55 12 T100 11 V30z"></path>
+  </svg>
+  <div class="import--video {{#if getValues}}hidden{{/if}}">
+      <i class="fas fa-cloud-download-alt"></i>
+      <form action="/import-vid-info" method="GET" class="import-video-url">
+        <input type="text" name="videoUrl">
+        <i class="fas fa-link"></i>
+        <label for="import">YouTube</label>
+        <input class="btn import-btn" id="import" type="submit" value="Upload">
+      </form>
+  </div>
+  {{#if databaseError}}
+    <p>{{err}}</p>
+  {{/if}}
+  {{#if wrongLink}}
+  <p class="error-msg">invalid link,, please check your link</p>
+  {{/if}}
+  {{#if wrongService}}
+  <p class="error-msg">invalid, only YouTube videos are allowed for now</p>
+  {{/if}}
+  {{#if getValues}}
+  <div class="import--video-details">
+    <i class="fas fa-cloud-download-alt"></i>
+    <form action="/import-vid-info" method="post">
+      <input type="text" name="link" value="{{videoUrl}}" readonly>
+      <i class="fas fa-link"></i>
+      <label for="video-title">Video Title</label>
+      <input type="text" name="title" id="video-title" value="{{data.title}}">
+      <label for="video-description">Video Description</label>
+      <textarea name="description" id="video-description">{{data.description}}</textarea>
+      <label for="video-category">Category</label>
+      <select name="videoCategory" id="video-category">
+        <option value="Film &amp; Animation">Film &amp; Animation</option>
+        <option value="Cars &amp; Vehicles">Cars &amp; Vehicles</option>
+        <option value="Music">Music</option>
+        <option value="Pets &amp; Animals">Pets &amp; Animals</option>
+        <option value="Sports">Sports</option>
+        <option value="Travel &amp; Events">Travel &amp; Events</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="News &amp; Politics">News &amp; Politics</option>
+        <option value="How-to &amp; Style">How-to &amp; Style</option>
+        <option value="Non-profits &amp; Activism">Non-profits &amp; Activism</option>
+      </select>
+      <button class="btn btn--blue pull-right" type="submit">
+        <i class="far fa-check-circle"></i>Publish
+      </button>
+    </form>
+  </div>
+  {{/if}}
