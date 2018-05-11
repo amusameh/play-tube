@@ -1,6 +1,4 @@
 const bcrypt = require('bcrypt');
-// const { body, validationResult } = require('express-validator/check');
-// const { sanitizeBody } = require('express-validator/filter');
 const expressValidator = require('express-validator');
 const post = require('./../database/query/post');
 
@@ -19,25 +17,21 @@ exports.post = (req, res) => {
   req.checkBody('passwordMatch', 'Passwords do not match, please try again.').equals(req.body.password);
   req.checkBody('username', 'Username can only contain letters, numbers, or underscores.').matches(/^[A-Za-z0-9_-]+$/, 'i');
 
-  const errors = req.validationErrors();
-  console.log(errors);
-  
+  const errors = req.validationErrors();  
   if (errors) {
-    console.log(`Errors: ${JSON.stringify(errors)}`);
-
     res.render('register', {
       title: 'Registration Error',
       errors
     });
   } else {
     const {username, email, password,confirmPassword, sex} = req.body;
-    console.log(req.body);
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
         throw new Error('hashing password signup', err);
       } else {
         post.addUser(username, email, hash, sex, (err, result) => {
           if(err) throw new Error('add user error', err);
+          req.flash('success_msg', 'You are registered and can now login');
           res.redirect('/login');
         });
       }
