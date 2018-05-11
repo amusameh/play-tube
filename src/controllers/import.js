@@ -9,7 +9,6 @@ let videoSrc = '';
 let linkInfo = '';
 
 exports.get = (req, res) => {
-  console.log(generatevidId());
   res.render('importvid', { importVid: true });
 }
 
@@ -46,6 +45,7 @@ exports.post = (req, res) => {
   console.log(videoUrl, 'vidURl'); // we can check if user changed the vidUrl
   const data = req.body;
   data.source = videoSrc;
+  data.hashedId = generatevidId();
   data.userId = 1;  //get the user id from the token
   console.log(data);
   postImport(data, (err, result) => {
