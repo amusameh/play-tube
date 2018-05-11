@@ -17,7 +17,6 @@ exports.getInfo = (req, res) => {
     linkInfo = getVideoId((req.query.videoUrl).toString());
   } else {
     linkInfo = getVideoId('req.query is empty');
-    console.log('aaaaaaa')
   }
   if (linkInfo.service !== 'youtube') {
     res.render('importvid', { importVid: true, wrongService: true});
@@ -27,6 +26,7 @@ exports.getInfo = (req, res) => {
 
     request.get(uri, (err, response, body) => {
       body = JSON.parse(body)
+      // console.log(uri)
       if (err) {
         console.log('importinfo error', err);
       } else if (response.statusCode === 200 && body.items.length > 0) {
@@ -54,6 +54,7 @@ exports.post = (req, res) => {
       res.render('importvid', { importVid: true, databaseError: true, err });
     } else {
       //popUp
+      req.flash('info', 'succesfully import the video');
       res.redirect('/');
     }
   });

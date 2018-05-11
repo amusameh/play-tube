@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
+const flash = require('connect-flash'); //supposed to make popup msgs
 
 // auth modules
 const session = require('express-session');
@@ -32,7 +33,6 @@ app.engine('hbs',
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(expressValidator());
-
 app.set('port', process.env.PORT || 3000);
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -42,8 +42,14 @@ app.use(session({
   saveUninitialized: false,
   // cookie: { secure: true}
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(controllers);
+
+app.use((req, res, next) => {
+  res.locals.info = req.flash('info')
+  next()
+})
 
 module.exports = app;
