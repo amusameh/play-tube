@@ -1,30 +1,31 @@
-
-{{#if errors}}
-<ul>
-  {{#each errors}}
-    <li>{{this.msg}}</li>
-  {{/each}}
-
-</ul>
+ {{#if errors}}
+  <ul>
+    {{#each errors}}
+      <li>{{this.msg}}</li>
+    {{/each}}
+  </ul>
 {{/if}}
 
+<div class="register">
 
-<form action="/register" method="POST">
-  <label for=""> username
-   <input type="text" name="username">
-  </label>
-
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email">
-  
-  <label for="psw">password</label>
-  <input type="password" name="password" id="psw">
-
-  <label for="pswMatch">password</label>
-  <input type="password" name="passwordMatch" id="pswMatch">
-
-  <label for="sex">sex</label>
-  <input type="text" name="sex" id="sex">
-
-  <input type="submit" value="submit">
-</form>
+  <form action="" method="post">
+    <h1>Let's get started!</h1>
+    <input type="text" name="username" placeholder="Username">
+    <input type="email" name="email" placeholder="E-mail address">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="passwordMatch" placeholder="Confirm Password">
+    <select name="sex">
+      <option value="male" selected>Male</option>
+      <option value="female">Female</option>
+    </select>
+    <input type="submit" value="Submit">
+    <p>Already have an account
+      <a href="/login">Log In</a>?</p>
+  </form>
+</div>
+<div class="squere"></div>
+<div class="circle"></div>
+<div class="squere1"></div>
+<div class="circle1"></div>
+<div class="squere2"></div>
+<div class="circle2"></div>

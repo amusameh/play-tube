@@ -5,7 +5,8 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
-
+const flash = require('connect-flash');
+ 
 // auth modules
 const session = require('express-session');
 const passport = require('passport');
@@ -42,8 +43,22 @@ app.use(session({
   saveUninitialized: false,
   // cookie: { secure: true}
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Connect Flash
+app.use(flash());
+
+// Global Vars
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
+
 app.use(controllers);
 
 module.exports = app;
