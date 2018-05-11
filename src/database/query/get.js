@@ -1,6 +1,5 @@
 const dbConnection = require('../db_connection');
 
-
 const getUserData = (username, cb) => {
   const sql = {
     text: 'SELECT * FROM users WHERE username = $1',
@@ -8,14 +7,26 @@ const getUserData = (username, cb) => {
   }
   dbConnection.query(sql, (err, result) => {
     if(err) {
-      console.log(err);
       cb(err);
     } else {
-      console.log(result.rows);
-      // res.send(result.rows);
       cb(null, result.rows)
     }
   });
 }
 
-module.exports = { getUserData };
+const getUserById = (id, cb) => {
+  const sql = {
+    text: 'SELECT id FROM users WHERE id = $1',
+    values: [id]
+  }
+  dbConnection.query(sql, (err, result) => {
+    if(err) {
+      cb(err);
+    } else {
+      console.log('result.row id', result.rows);
+      cb(null, result.rows)
+    }
+  });
+}
+
+module.exports = { getUserData, getUserById };

@@ -1,8 +1,18 @@
-<form action="/login" method="post">
-  <label for="username">User Name</label>
-  <input type="text" name="username" id="username">
-  <label for="psw">password</label>
-  <input type="password" name="password" id="psw">
+{{#if success_msg}}
+  <h1>{{success_msg}}</h1>
+{{/if}}
 
-  <input type="submit" value="submit">
-</form>
+<div class="login">
+    <form action="/login" method="post">
+        <h1>Welcome back!</h1>
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Log In">
+    </form>
+</div>
+<div class="squere"></div>
+<div class="circle"></div>
+<div class="squere1"></div>
+<div class="circle1"></div>
+<div class="squere2"></div>
+<div class="circle2"></div>

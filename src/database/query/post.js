@@ -11,14 +11,4 @@ const addUser = (username, email, password, sex, cb) => {
   });
 };
 
-const getUser = () => {
-  const sql = {
-    text: 'SELECT * FROM users'
-  }
-  dbConnection.query('SELECT * FROM users', (err, result) => {
-    if(err) throw new Error(err, 'ahmed');
-    console.log(result.rows);
-    
-  })
-}
-module.exports = { addUser, getUser };
+module.exports = { addUser };
