@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
@@ -18,7 +17,7 @@ function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	} else {
-    //req.flash('error_msg','You are not logged in');
+    req.flash('error_msg','You are not logged in');
 		res.redirect('/login');
 	}
 }
@@ -26,13 +25,17 @@ function ensureAuthenticated(req, res, next){
 // Get loginpage
 router.get('/login', login.get);
 
-passport.use(new LocalStrategy(  
+passport.use(new LocalStrategy(
 	function (username, password, done) {
 		get.getUserData(username, function (err, data) {
 			if (!data.length) {
+        console.log('error', err);
+
 				return done(null, false, { message: 'Unknown User' });
 			}
       user = data[0];
+      console.log(user);
+
 			if (err) throw err;
 			bcrypt.compare(password, user.password, function (err, isMatch) {
 				if (err) throw err;
@@ -45,8 +48,8 @@ passport.use(new LocalStrategy(
 		});
   })
 );
-  
-passport.serializeUser(function (user, done) {  
+
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
@@ -66,8 +69,8 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import-video',ensureAuthenticated, importvideo.get);
-router.get('/import-vid-info',ensureAuthenticated, importvideo.getInfo);
+router.get('/import-video', importvideo.get);
+router.get('/import-vid-info', importvideo.getInfo);
 router.post('/import-vid-info', importvideo.post);
 
 module.exports = router;
