@@ -20,11 +20,6 @@
   clear: both;
 }
 
-/**
-   * For IE 6/7 only
-   * Include this rule to trigger hasLayout and contain floats.
-   */
-
 .cf {
   *zoom: 1;
 }
@@ -144,11 +139,6 @@ svg {
   position: absolute;
   right: 0;
 }
-/* 
-.hidden {
-  position: absolute;
-  right: 0;
-} */
 
 .search-box-phone {
   position: absolute;
@@ -173,52 +163,13 @@ svg {
   right: 0;
 }
 
-/* hero section styles */
-
-/* .hero {
-  background: url('../images/hero.jpg');
-  background-size: cover;
-  background-position: top;
-  padding-top: 20px;
-  /* position: relative; */
-/* } */
-
-/* .featured {
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border-radius: 50%;
-  background: grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* display: inline-block; */
-  /* margin-left: 20px; */
-  /* margin-right: 20px; */
-  /* position: absolute;
-  top: 20px;
-  left: 20px; */
-  /* z-index: 1000; */
-} */
-
 .hero-content {
   padding: 50px 30px 40px;
-  /* position: relative; */
 }
-
-/* .featured-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-} */
 
 .not-in-phone {
   display: none;
 }
-
 
 /*Start MOhammed*/
 .mainImg{
@@ -238,8 +189,6 @@ svg {
   min-width: 400px;
   width: 100%;
   margin-bottom: -4px;
-
-  /* background-color: linear-gradient(rgba(255, 0, 0, 0.5), rgba(110, 0, 0, 0.5)); */
   transition: all .2s ease;
 }
 
@@ -252,8 +201,6 @@ svg {
   top: 16px;
   left: 16px;
 }
-
-
 
 .profile-left{
   position: absolute;
@@ -294,7 +241,6 @@ svg {
   margin-left: -12px
 }
 
-
 @media screen and (max-width: 500px) {
   .profile-right{
     display: none;
@@ -308,12 +254,6 @@ svg {
 /* ================================================ */
 /* ========== Trending sections styles ============ */
 /* ================================================ */
-
-
-/* main {
-  width: 85%;
-  margin: 0 auto;
-} */
 
 .trend {
   background-color: #212121;
@@ -332,7 +272,6 @@ svg {
 }
 
 .title .trend-header:before {
-  /* background-image:  */
 }
 
 .title .more {
@@ -420,7 +359,6 @@ svg {
   height: 1px;
   width: 80%;
   margin: 10px auto;
-  /* border: 1px solid #ccc; */
 }
 
 .footer .footer-lang {
@@ -445,15 +383,13 @@ svg {
 section.cat {
   width: 100%;
 }
-.latest-videos .video {
-  /* display: inline-block; */
-}
 
 .latest-videos > .video:first-of-type {
   width: 70% !important;
   height: 100%;
   float: left;
 }
+  
 .latest-left {
   float: right;
   width: 26%;
@@ -463,6 +399,7 @@ section.cat {
   width: 100%;
   margin-bottom: 10px;
 }
+  
 .latest-left .latest-videos {
   float: none;
 }
@@ -470,13 +407,11 @@ section.cat {
 #video-latest {
   width: 70%;
 }
-}
 
 @media screen and (min-width: 992px) {
   .cat {
     width: 45%;
     float: left;
-    /* margin-left: 4%; */
   }
 
   .category .video {
