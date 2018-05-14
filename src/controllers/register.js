@@ -17,20 +17,14 @@ exports.post = (req, res) => {
   req.checkBody('passwordMatch', 'Passwords do not match, please try again.').equals(req.body.password);
   req.checkBody('username', 'Username can only contain letters, numbers, or underscores.').matches(/^[A-Za-z0-9_-]+$/, 'i');
 
-  const errors = req.validationErrors();  
+  const errors = req.validationErrors();
   if (errors) {
     res.render('register', {
       title: 'Registration Error',
       errors
     });
   } else {
-    const {username, email, password,confirmPassword} = req.body;
-    let sex = req.body.sex;    
-    if (sex === 'Male') {
-      sex = 'm'
-    } else if (sex === 'Female') {
-      sex = 'f'
-    }
+    const {username, email, password,sex} = req.body;
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
         throw new Error('hashing password signup', err);
