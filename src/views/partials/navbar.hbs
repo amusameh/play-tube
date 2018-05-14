@@ -1,7 +1,7 @@
 <div class="container">
 
   <nav class="navbar">
-    <img src="./images/logo.png" alt="" class="logo">
+    <a href="/"><img src="./images/logo.png" alt="" class="logo"></a>
     <div class="search-box not-in-phone">
       <i class="fas fa-search"></i>
       <input type="search" id="searchBar" class="search-bar" placeholder="What are you going to watch!">
@@ -21,13 +21,18 @@
       </div>
 
       </li>
-      <li class="drop"><a href="/register">
+      <li class="drop"><a href="#" id="dropMenuIcon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         <span class="caret"></span>
       </a>
-      <!-- <ul class="drop-menu"> -->
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up</a></li>
+      <ul class="drop-menu" id="dropMenu">
+        {{#if user}}
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/channel"> My Channel</a></li>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Sign Up</a></li>
+        {{/if}}
       </ul>
     </li>
     </ul>
