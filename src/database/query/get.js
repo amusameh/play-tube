@@ -8,6 +8,14 @@ const getUserData = (username, cb) => {
   executeQuery(sql, cb);
 }
 
+const getUserById = (id, cb)=>{
+  const sql = {
+    text: 'SELECT id, username FROM users WHERE id = $1',
+    values: [id]
+  }
+  executeQuery(sql, cb);
+}
+
 const getVideoData = (hashed_id, cb)=>{
   const sql = {
     text:'SELECT username, videos.* FROM videos INNER JOIN users ON videos.user_id = users.id WHERE hashed_id = $1',
@@ -51,5 +59,6 @@ module.exports = {
   getUserData,
   getVideoData,
   getVideoComments,
-  getVideoSubComments
+  getVideoSubComments,
+  getUserById
  };
