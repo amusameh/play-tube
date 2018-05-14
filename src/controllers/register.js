@@ -24,15 +24,25 @@ exports.post = (req, res) => {
       errors
     });
   } else {
-    const {username, email, password,confirmPassword, sex} = req.body;
+    const {username, email, password,confirmPassword} = req.body;
+    let sex = req.body.sex;    
+    if (sex === 'Male') {
+      sex = 'm'
+    } else if (sex === 'Female') {
+      sex = 'f'
+    }
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
         throw new Error('hashing password signup', err);
       } else {
         post.addUser(username, email, hash, sex, (err, result) => {
-          if(err) throw new Error('add user error', err);
-          req.flash('success_msg', 'You are registered and can now login');
-          res.redirect('/login');
+          if(err) {
+            req.flash('error_msg', 'user exists');
+            res.redirect('/register');
+          } else {
+            req.flash('success_msg', 'You are registered and can now login');
+            res.redirect('/login');
+          }
         });
       }
     });

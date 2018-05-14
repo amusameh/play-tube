@@ -41,7 +41,8 @@ app.use(session({
   secret: 'cat',
   resave: false,
   saveUninitialized: false,
-  // cookie: { secure: true}
+  cookie: { maxAge: 900000},
+  key: 'black_sail'
 }));
 
 app.use(passport.initialize());
@@ -52,6 +53,8 @@ app.use(flash());
 
 // Global Vars
 app.use(function (req, res, next) {
+  console.log(req.user);
+  
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');

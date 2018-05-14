@@ -64,10 +64,19 @@ router.post('/login', passport.authenticate('local', {
   res.redirect('/');
 });
 
+router.get('/logout',ensureAuthenticated, (req, res) => {
+  req.logOut();
+  req.session.cookie.maxAge = 0;
+  req.session.destroy((err) => {
+    res.redirect('/');
+  });
+  // res.clearCookie('black_sail');
+})
+
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import-video',ensureAuthenticated, importvideo.get);
-router.get('/import-vid-info',ensureAuthenticated, importvideo.getInfo);
-router.post('/import-vid-info', importvideo.post);
+router.get('/import-video', ensureAuthenticated, importvideo.get);
+router.get('/import-vid-info', ensureAuthenticated, importvideo.getInfo);
+router.post('/import-vid-info', ensureAuthenticated, importvideo.post);
 
 module.exports = router;

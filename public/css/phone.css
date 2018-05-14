@@ -144,6 +144,11 @@ svg {
   position: absolute;
   right: 0;
 }
+/* 
+.hidden {
+  position: absolute;
+  right: 0;
+} */
 
 .search-box-phone {
   position: absolute;
@@ -213,6 +218,8 @@ svg {
 .not-in-phone {
   display: none;
 }
+
+
 /*Start MOhammed*/
 .mainImg{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 0, 0, 0.5)), url('./../images/hero.jpg');
