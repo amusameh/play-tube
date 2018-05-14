@@ -10,6 +10,7 @@ const register = require('./register');
 const importvideo = require('./import');
 const login = require('./login');
 const get = require('../database/query/get')
+const video = require('./video');
 
 // Get Homepage
 router.get('/', home.get);
@@ -24,9 +25,11 @@ function ensureAuthenticated(req, res, next){
 }
 
 // Get loginpage
+
+
 router.get('/login', login.get);
 
-passport.use(new LocalStrategy(  
+passport.use(new LocalStrategy(
 	function (username, password, done) {
 		get.getUserData(username, function (err, data) {
 			if (!data.length) {
@@ -45,8 +48,8 @@ passport.use(new LocalStrategy(
 		});
   })
 );
-  
-passport.serializeUser(function (user, done) {  
+
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
@@ -73,6 +76,8 @@ router.get('/logout',ensureAuthenticated, (req, res) => {
   // res.clearCookie('black_sail');
 })
 
+router.get('/watch/:hashed_id', video.get);
+router.get('/subscribe/:channelId', video.getSubscribe);
 router.get('/register', register.get);
 router.post('/register', register.post);
 router.get('/import-video', ensureAuthenticated, importvideo.get);
