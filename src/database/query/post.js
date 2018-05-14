@@ -5,10 +5,7 @@ const addUser = (username, email, password, sex, cb) => {
     text: 'INSERT INTO users (username, email, password, sex) VALUES ($1, $2, $3, $4)',
     values: [username, email, password, sex]
   }
-  dbConnection.query(sql, (err, result) => {
-    if(err) return cb(err);
-    cb(null, result);
-  });
+  executeQuery(sql, cb);
 };
 
 const postImport = (data, cb) => {
@@ -19,9 +16,40 @@ const postImport = (data, cb) => {
   }
   dbConnection.query(sql, (err, result) => {
     if(err) return cb(err);
-    console.log('query postImport result', result.rows);
     cb(null, "you've add a new video succesfully");
-
   })
 }
-module.exports = { addUser, postImport };
+
+const postSubscribe = (userId, channelId, cb)=>{
+  const sql = {
+    text:'INSERT INTO subscribe (user_id, channel_id, deleted) VALUES ($1, $2, DEFAULT);',
+    values:[userId,channelId]
+  }
+  executeQuery(sql, cb);
+}
+
+const removeSubscribtion = (userId, channelId, cb)=>{
+  const sql = {
+    text: 'DELETE FROM subscribe WHERE user_id = $1 AND channel_id = $2',
+    values: [userId, channelId]
+  }
+  executeQuery(sql, cb);
+}
+
+const executeQuery = (sql, cb)=>{
+  dbConnection.query(sql, (err, result) => {
+    if(err) {
+      cb(err);
+    } else {
+      cb(null, result.rows)
+    }
+  });
+}
+
+
+module.exports = {
+    addUser,
+    postImport,
+    postSubscribe,
+    removeSubscribtion
+  };
