@@ -1,6 +1,8 @@
-const {getUserData, getVideoData, getVideoComments, getVideoSubComments} = require('../database/query/get');
+const {getUserData, getVideoData, getVideoComments, getVideoSubComments, getSubscribtionCount, isSubscribed} = require('../database/query/get');
+const {postSubscribe, removeSubscribtion} = require('../database/query/post');
 
 let videoDetail;
+let subscribed;
 
 const getDate = (commentObj)=>{
   const dateObj = commentObj.created_at;
@@ -18,7 +20,6 @@ exports.get = (req, res)=>{
         poster:result[0].poster_url,
         url:result[0].link,
         views:50,
-        subscribtionCount:100,
         channelId: result[0].user_id,
         channelName:result[0].username,
         publishTime:date,
@@ -66,10 +67,26 @@ exports.get = (req, res)=>{
         })
       })
 
-      res.render('video', {
-        videoDetail,
-        commentsDetails
+      if(req.user){
+        isSubscribed(req.user[0].id, videoDetail.channelId, (err,result)=>{
+          if(err) console.log('user not exist ' ,err);
+          subscribed = result[0].exists;
+        })
+      }else{
+        subscribed = false;
+      }
+
+      console.log('channel id ', videoDetail.channelId);
+      getSubscribtionCount(videoDetail.channelId, (err, result)=>{
+        console.log('subscribe ', result);
+        res.render('video', {
+          subscribed,
+          subscribtionCount:result[0].count,
+          videoDetail,
+          commentsDetails
+        })
       })
+
     })
 
 
@@ -77,6 +94,17 @@ exports.get = (req, res)=>{
 
 }
 
-exports.getSubscribe = (req,res)=>{
-  // console.log(req.user);
+exports.postSubscribe = (req,res)=>{
+  const url = req.headers.referer.split('/').pop()
+  postSubscribe(req.user[0].id, req.params.channelId,(err, result)=>{
+    if (err){
+      removeSubscribtion(req.user[0].id, req.params.channelId, (err,result)=>{
+        subscribed = false;
+        res.redirect('/watch/'+url)
+      })
+    }else{
+      subscribed = true;
+      res.redirect('/watch/'+url)
+    }
+  })
 }
