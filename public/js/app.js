@@ -3,10 +3,17 @@ const select= (selector)=>{
 }
 
 var popup = select('#successPopup');
-console.log(popup);
-
-if (popup) {
-  popup.addEventListener('click', (e) => {
-    popup.classList.add('hidden');
-  })
+function removePopup(e) {
+  popup.classList.add('hidden');
 }
+if (popup) {
+    window.addEventListener('click', removePopup, { once: true, capture: true })
+}
+
+const dropMenuIcon = document.getElementById('dropMenuIcon');
+const dropMenu = document.getElementById('dropMenu')
+
+dropMenuIcon.addEventListener('click', (e) => {
+  e.preventDefault();
+  dropMenu.classList.toggle('hidden')
+})

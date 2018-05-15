@@ -5,5 +5,5 @@ const LocalStrategy = require('passport-local').Strategy;
 const getQuery = require('./../database/query/get');
 
 exports.get = (req, res) => {
-  res.render('login');
+  res.render('login', { css: 'login'});
 }

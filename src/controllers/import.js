@@ -9,13 +9,13 @@ let videoSrc = '';
 let linkInfo = '';
 
 exports.get = (req, res) => {
-  res.render('importvid', { importVidStyle: true });
+  res.render('importvid', { css: 'import-video' });
 }
 
 exports.getInfo = (req, res) => {
   linkInfo = getVideoId((req.query.videoUrl).toString());
   if (linkInfo.service !== 'youtube') {
-    res.render('importvid', { importVidStyle: true, importVid: true, wrongService: true });
+    res.render('importvid', { css: 'import-video', importVid: true, wrongService: true });
   } else {
     videoSrc = linkInfo.service;
     const uri = `https://www.googleapis.com/youtube/v3/videos?id=${linkInfo.id}&key=${process.env.API_KEY}&part=snippet&fields=items/snippet(title,description,thumbnails)`
@@ -23,16 +23,14 @@ exports.getInfo = (req, res) => {
     request.get(uri, (err, response, body) => {
       body = JSON.parse(body)
       if (err) {
-        console.log('importinfo error', err);
+        console.error('importinfo error', err);
         res.render('error');
       } else if (response.statusCode === 200 && body.items.length > 0) {
         const data = body.items[0].snippet;
         videoUrl = req.query.videoUrl;
-        res.render('importvid', { importVidStyle: true, data, importVid: true, getValues: true, videoUrl });
+        res.render('importvid', { css: 'import-video', data, importVid: true, getValues: true, videoUrl });
       } else {
-        console.log('Invalid youtube link status code', response.statusCode);
-        console.log('body', body);
-        res.render('importvid', { importVidStyle: true, importVid: true, wrongLink: true });
+        res.render('importvid', { css: 'import-video', importVid: true, wrongLink: true });
       }
     });
   }
@@ -45,7 +43,7 @@ exports.post = (req, res) => {
   postImport(data, (err, result) => {
     if (err) {
       console.error(err, 'post_error');
-      res.render('importvid', { importVid: true, databaseError: true, err });
+      res.render('importvid', { css: 'import-video', importVid: true, databaseError: true, err });
     } else {
       req.flash('success_msg', 'you have imported your video succesfully');
       res.redirect('/');

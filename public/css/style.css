@@ -99,12 +99,14 @@ svg:not(:root) {
   right: 50%;
   color: green;
   background-color: #cccc;
-  width: 250px;
+  width: 550px;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
+  box-shadow: 2px 2px 13px -4px black;
+  border-radius: 25px;
 }
 
 .hidden {

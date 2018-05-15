@@ -9,6 +9,7 @@ const register = require('./register');
 const importvideo = require('./import');
 const login = require('./login');
 const get = require('../database/query/get')
+const video = require('./video');
 
 // Get Homepage
 router.get('/', home.get);
@@ -23,6 +24,8 @@ function ensureAuthenticated(req, res, next){
 }
 
 // Get loginpage
+
+
 router.get('/login', login.get);
 
 passport.use(new LocalStrategy(
@@ -34,8 +37,6 @@ passport.use(new LocalStrategy(
 				return done(null, false, { message: 'Unknown User' });
 			}
       user = data[0];
-      console.log(user);
-
 			if (err) throw err;
 			bcrypt.compare(password, user.password, function (err, isMatch) {
 				if (err) throw err;
@@ -67,10 +68,21 @@ router.post('/login', passport.authenticate('local', {
   res.redirect('/');
 });
 
+router.get('/logout',ensureAuthenticated, (req, res) => {
+  req.logOut();
+  req.session.cookie.maxAge = 0;
+  req.session.destroy((err) => {
+    res.redirect('/');
+  });
+  // res.clearCookie('black_sail');
+})
+
+router.get('/watch/:hashed_id', video.get);
+router.get('/subscribe/:channelId', video.getSubscribe);
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import-video', importvideo.get);
-router.get('/import-vid-info', importvideo.getInfo);
-router.post('/import-vid-info', importvideo.post);
+router.get('/import-video', ensureAuthenticated, importvideo.get);
+router.get('/import-vid-info', ensureAuthenticated, importvideo.getInfo);
+router.post('/import-vid-info', ensureAuthenticated, importvideo.post);
 
 module.exports = router;

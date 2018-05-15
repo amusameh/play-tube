@@ -15,7 +15,12 @@
   <footer class="footer">
     {{>footer}}
   </footer>
-  <script src="js/app.js"></script>
-</body>
 
-</html>
+  <script src="/js/app.js"></script>
+  <script src="/js/dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.6/mediaelement-and-player.min.js"></script>
+  {{#if js}}
+  <script src="/js/{{js}}.js"></script>
+  {{/if}}
+  </body>
+  </html>

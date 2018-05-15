@@ -304,6 +304,12 @@
   border-radius: 50%;
 }
 
+.sub-comments{
+  padding-top: 15px;
+  padding-left: 50px;
+
+}
+
 .main-comment {
   position: relative;
   height: 75px;

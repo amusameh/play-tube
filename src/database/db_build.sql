@@ -27,7 +27,6 @@ CREATE TABLE videos(
   title VARCHAR NOT NULL,
   description TEXT NOT NULL,
   link VARCHAR NOT NULL UNIQUE,
-  source VARCHAR NOT NULL DEFAULT 'local',
   poster_url VARCHAR,
   category VARCHAR CHECK(category IN ('Film & Animation', 'Cars & Vehicles', 'Music', 'Pets & Animals', 'Sports', 'Travel & Events', 'Gaming', 'Comedy', 'Entertainment', 'News & Politics', 'How-to & Style', 'Non-profits & Activism')),
   deleted BOOLEAN DEFAULT false,
@@ -97,18 +96,10 @@ INSERT INTO  users (username, fname, lname, email, password, country, sex, bio, 
   ('Abdallah_d', 'Abd', 'Dagga', 'a.dagga@hotmail.com', '$2b$10$QSo.MiyP4yjS7fmdNGYBNOa.wwY3sSAZrvPpb6uUth5wJsM9K3b9O', 'Turkey', 'f', 'Something about myself', 'https://www.facebook.com/abd.dagga.986', 'https://twitter.com/adagga2015', 'https://i.pinimg.com/originals/6a/07/f2/6a07f2cc3d7ba95b48ca02ae2199598a.jpg', 'https://cdn.vectorstock.com/i/1000x1000/25/70/user-icon-woman-profile-human-avatar-vector-10552570.jpg');
 
 
-INSERT INTO videos (hashed_id, user_id, title, description, link, source, poster_url, category) VALUES
-('dt7p0qj5is', 1, 'Hamza Namira - Sheekayyo | حمزة نمرة - شيكايو', 'شيكايو اغنية غبية ومش فاهم ايش مال ابوهاط ', 'https://www.youtube.com/watch?v=GoerU3f2xAM', 'youtube', 'https://i.ytimg.com/vi/GoerU3f2xAM/maxresdefault.jpg', 'Music'),
-('lockl4gwns', 2, 'ICE GOD OF HUNGARY by Glitter Job [AUDIO ONLY]', 'Ice god of hunary awesome song by glitter job found it on badlips stranger thing video', 'https://www.youtube.com/watch?v=4mokhz53Dbo', 'youtube', 'https://i.ytimg.com/vi/4mokhz53Dbo/default.jpg', 'Music');
+INSERT INTO videos (hashed_id, user_id, title, description, link, poster_url, category) VALUES
+('dt7p0qj5is', 1, 'Hamza Namira - Sheekayyo | حمزة نمرة - شيكايو', 'شيكايو اغنية غبية ومش فاهم ايش مال ابوهاط ', 'https://www.youtube.com/watch?v=GoerU3f2xAM', 'https://i.ytimg.com/vi/GoerU3f2xAM/maxresdefault.jpg', 'Music'),
+('lockl4gwns', 2, 'ICE GOD OF HUNGARY by Glitter Job [AUDIO ONLY]', 'Ice god of hunary awesome song by glitter job found it on badlips stranger thing video', 'https://www.youtube.com/watch?v=4mokhz53Dbo', 'https://i.ytimg.com/vi/4mokhz53Dbo/default.jpg', 'Music');
 
-INSERT INTO likes_dislikes (user_id, video_id, like_state) VALUES
-(1,2,'l'), (2,1,'l'), (3,2,'d'), (4,2,'l'), (3,1,'l'), (4,1,'l');
-
-INSERT INTO views (user_id, video_id) VALUES
-(1,2), (2,1), (3,2), (4,2), (3,1), (4,1);
-
-INSERT INTO subscribe (user_id, channel_id) VALUES
-(1,2), (2,1), (3,1), (4,1), (1,3), (1,4), (3,2), (4,2);
 
 INSERT INTO play_lists (hashed_id, user_id, name, description) VALUES
 ('dt7p0qj5is', 1, 'stupid videos', 'some dummy videos'),
@@ -125,4 +116,19 @@ INSERT INTO comments (user_id, video_id, content, parent_id) VALUES
 (3, 1, 'calm down guys', 4),
 (4, 1, 'what a sweet video', 2);
 
+INSERT INTO views (user_id, video_id) VALUES
+(1,2), (2,1), (3,2), (4,2), (3,1), (4,1);
+
+INSERT INTO subscribe (user_id, channel_id) VALUES
+(1,2), (2,1), (3,1), (4,1), (1,3), (1,4), (3,2), (4,2);
+
+INSERT INTO likes_dislikes (user_id, video_id, like_state) VALUES
+(1,2,'l'), (2,1,'l'), (3,2,'d'), (4,2,'l'), (3,1,'l'), (4,1,'l');
+
 COMMIT;
+-------------------------------------------------------
+select username ,content  from comments inner join users on user_id = users.id  where parent_id = 1 and video_id = 1;
+username  |            content
+------------+--------------------------------
+mohammed_h | are you sure it is nice video?
+----------------------------------------------------------

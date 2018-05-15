@@ -19,7 +19,6 @@ const postImport = (data, cb) => {
   }
   dbConnection.query(sql, (err, result) => {
     if(err) return cb(err);
-    console.log('query postImport result', result.rows);
     cb(null, "you've add a new video succesfully");
 
   })

@@ -36,11 +36,15 @@ app.use(expressValidator());
 app.set('port', process.env.PORT || 3000);
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
+// express.static.mime.define({'text/css': ['css']});
+
+// app.use('/watch',express.static(path.join(__dirname, '..', 'public')));
 app.use(session({
   secret: 'cat',
   resave: false,
   saveUninitialized: false,
-  // cookie: { secure: true}
+  cookie: { maxAge: 900000},
+  key: 'black_sail'
 }));
 app.use(passport.initialize());
 app.use(passport.session());
