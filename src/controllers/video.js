@@ -79,6 +79,8 @@ exports.get = (req, res)=>{
       getSubscribtionCount(videoDetail.channelId, (err, result)=>{
         console.log('subscribe ', result);
         res.render('video', {
+          css: 'video',
+          js: 'mediaPlayer',
           subscribed,
           subscribtionCount:result[0].count,
           videoDetail,
