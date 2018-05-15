@@ -31,7 +31,6 @@ const getVideoComments = (hashed_id, cb)=>{
     values:[hashed_id]
   }
   executeQuery(sql, cb);
-
 }
 
 const getVideoSubComments = (hashed_id, cb)=>{
@@ -41,7 +40,22 @@ const getVideoSubComments = (hashed_id, cb)=>{
     values:[hashed_id]
   }
   executeQuery(sql, cb);
+}
 
+const getSubscribtionCount = (channelId, cb)=>{
+  const sql = {
+    text: 'SELECT COUNT(channel_id)FROM subscribe WHERE channel_id = $1',
+    values: [channelId]
+  }
+  executeQuery(sql, cb);
+}
+
+const isSubscribed = (userId, channelId, cb)=>{
+  const sql = {
+    text: 'SELECT EXISTS(SELECT * FROM subscribe WHERE user_id = $1 AND channel_id = $2)',
+    values: [userId, channelId]
+  }
+  executeQuery(sql, cb);
 }
 
 
@@ -60,5 +74,7 @@ module.exports = {
   getVideoData,
   getVideoComments,
   getVideoSubComments,
-  getUserById
+  getUserById,
+  getSubscribtionCount,
+  isSubscribed
  };

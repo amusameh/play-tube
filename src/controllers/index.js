@@ -78,7 +78,7 @@ router.get('/logout',ensureAuthenticated, (req, res) => {
 })
 
 router.get('/watch/:hashed_id', video.get);
-router.get('/subscribe/:channelId', video.getSubscribe);
+router.get('/subscribe/:channelId', video.postSubscribe);
 router.get('/register', register.get);
 router.post('/register', register.post);
 router.get('/import-video', ensureAuthenticated, importvideo.get);
