@@ -36,6 +36,22 @@ const postSubscribe = (userId, channelId, cb)=>{
   executeQuery(sql, cb);
 }
 
+const postLike = (userId, videoId, state, cb)=>{
+  const sql = {
+    text:'INSERT INTO likes_dislikes (user_id, video_id, like_state) VALUES ($1, $2, $3);',
+    values:[userId,videoId,state]
+  }
+  executeQuery(sql, cb);
+}
+
+const removeLikeDislike = (userId, videoId, cb)=>{
+  const sql = {
+    text: 'DELETE FROM likes_dislikes WHERE user_id = $1 AND video_id = $2',
+    values: [userId,videoId]
+  }
+  executeQuery(sql, cb);
+}
+
 const removeSubscribtion = (userId, channelId, cb)=>{
   const sql = {
     text: 'DELETE FROM subscribe WHERE user_id = $1 AND channel_id = $2',
@@ -60,5 +76,7 @@ module.exports = {
     postImport,
     postSubscribe,
     removeSubscribtion,
-    insertComment
+    insertComment,
+    postLike,
+    removeLikeDislike
   };

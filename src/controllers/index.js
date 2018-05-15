@@ -68,6 +68,8 @@ router.get('/logout', (req, res) => {
 
 router.get('/watch/:hashed_id', video.get);
 router.get('/subscribe/:channelId', ensureLoggedIn('/login'),video.postSubscribe);
+router.get('/like/:videoId', ensureLoggedIn('/login'),video.postLike);
+router.get('/disLike/:videoId', ensureLoggedIn('/login'),video.postDisLike);
 router.post('/addComment', ensureLoggedIn('/login'),video.postComment);
 router.get('/register', register.get);
 router.post('/register', register.post);

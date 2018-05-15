@@ -126,9 +126,9 @@ INSERT INTO likes_dislikes (user_id, video_id, like_state) VALUES
 (1,2,'l'), (2,1,'l'), (3,2,'d'), (4,2,'l'), (3,1,'l'), (4,1,'l');
 
 COMMIT;
--------------------------------------------------------
-select username ,content  from comments inner join users on user_id = users.id  where parent_id = 1 and video_id = 1;
-username  |            content
-------------+--------------------------------
-mohammed_h | are you sure it is nice video?
-----------------------------------------------------------
+-- -------------------------------------------------------
+-- select username ,content  from comments inner join users on user_id = users.id  where parent_id = 1 and video_id = 1;
+-- username  |            content
+-- ------------+--------------------------------
+-- mohammed_h | are you sure it is nice video?
+-- ----------------------------------------------------------

@@ -1,10 +1,11 @@
 const {getUserData, getAllVideos, getVideoData, getVideoComments, getVideoSubComments, getSubscribtionCount, isSubscribed} = require('../database/query/get');
-const {postSubscribe, removeSubscribtion, insertComment} = require('../database/query/post');
+const {removeLikeDislike, postLike, postSubscribe, removeSubscribtion, insertComment} = require('../database/query/post');
 
 let videoDetail;
 let subscribed;
 let isOwner;
 let allVideos;
+
 const getDate = (commentObj)=>{
   const dateObj = commentObj.created_at;
   const date = dateObj.getUTCMonth()+1 + '-' + dateObj.getUTCDate() + '-' + dateObj.getUTCFullYear();
@@ -95,9 +96,8 @@ exports.get = (req, res)=>{
       getSubscribtionCount(videoDetail.channelId, (err, result)=>{
         console.log('subscribe ', result);
         res.render('video', {
-
           css: 'video',
-          js: 'mediaPlayer',
+          js: ['mediaPlayer', 'videoPage'],
           subscribed,
           subscribtionCount:result[0].count,
           commentsNumber: commentsDetails.length + subComments.length,
@@ -151,5 +151,29 @@ exports.postComment = (req, res)=>{
     //should send a messsage teeling the user to login or hide the comment area
     res.redirect('/login')
   }
+
+}
+
+exports.postLike = (req, res)=>{
+  addLikeDislike(req, res, 'l');
+}
+
+exports.postDisLike = (req, res)=>{
+  addLikeDislike(req, res, 'd');
+}
+
+const addLikeDislike = (req,res, state)=>{
+  postLike(req.user[0].id, videoDetail.videoId, state, (err,result)=>{
+    if(err){
+      removeLikeDislike(req.user[0].id, videoDetail.videoId, (err, result)=>{
+        if(err) console.error(err);
+        res.redirect('/watch/'+videoDetail.videoHashed);
+        console.log(state + ' removed');
+      })
+    } else{
+      console.log(state + ' added');
+      res.redirect('/watch/'+ videoDetail.videoHashed);
+    }
+  })
 
 }

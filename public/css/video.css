@@ -307,12 +307,29 @@
 .sub-comments{
   padding-top: 15px;
   padding-left: 50px;
+}
 
+.sub-Comment-input{
+  margin-left: 60px;
+  margin-bottom: 5px;
+  margin-top: 31px;
+
+}
+
+.sub-Comment-input input{
+  width: 300px;
+  height: 40px;
+  border-radius: 25px;
+}
+
+
+.hiddenComment{
+  display: none;
 }
 
 .main-comment {
   position: relative;
-  height: 75px;
+  height: 122px;
 }
 .user-name a {
   color: #efefef;
