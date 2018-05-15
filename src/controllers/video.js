@@ -1,39 +1,48 @@
-const {getUserData, getVideoData, getVideoComments, getVideoSubComments, getSubscribtionCount, isSubscribed} = require('../database/query/get');
-const {postSubscribe, removeSubscribtion} = require('../database/query/post');
+const {getUserData, getAllVideos, getVideoData, getVideoComments, getVideoSubComments, getSubscribtionCount, isSubscribed} = require('../database/query/get');
+const {postSubscribe, removeSubscribtion, insertComment} = require('../database/query/post');
 
 let videoDetail;
 let subscribed;
-
+let isOwner;
+let allVideos;
 const getDate = (commentObj)=>{
   const dateObj = commentObj.created_at;
   const date = dateObj.getUTCMonth()+1 + '-' + dateObj.getUTCDate() + '-' + dateObj.getUTCFullYear();
   return date;
 }
 
-
 exports.get = (req, res)=>{
-    getVideoData(req.params.hashed_id, (err,result)=>{
-      const dateObj = result[0].created_at;
-      const date = dateObj.getUTCMonth()+1 + '-' + dateObj.getUTCDate() + '-' + dateObj.getUTCFullYear();
-      videoDetail = {
-        title : result[0].title,
-        poster:result[0].poster_url,
-        url:result[0].link,
-        views:50,
-        channelId: result[0].user_id,
-        channelName:result[0].username,
-        publishTime:date,
-        category:result[0].category,
-        description:result[0].description,
-        like:50,
-        dislike:60
-      }})
+
+  getVideoData(req.params.hashed_id, (err,result)=>{
+    const dateObj = result[0].created_at;
+    const date = dateObj.getUTCMonth()+1 + '-' + dateObj.getUTCDate() + '-' + dateObj.getUTCFullYear();
+    videoDetail = {
+      videoId:result[0].id,
+      videoHashed: result[0].hashed_id,
+      title : result[0].title,
+      poster:result[0].poster_url,
+      url:result[0].link,
+      views:50,
+      channelId: result[0].user_id,
+      channelName:result[0].username,
+      publishTime:date,
+      category:result[0].category,
+      description:result[0].description,
+      like:50,
+      dislike:60
+    }})
+
+    getAllVideos((err, result)=>{
+      if(err) return console.log('Could not fetch the video from DB')
+      allVideos = result;
+    })
 
   getVideoComments(req.params.hashed_id, (err, result)=>{
     const commentsDetails = result.map(element=>{
       const date = getDate(element);
       const obj = {
         id: element.id,
+        userId:element.user_id,
         username: element.username,
         content : element.content,
         time : date,
@@ -41,7 +50,6 @@ exports.get = (req, res)=>{
       }
       return obj
     })
-    // console.log(commentsDetails);
 
     getVideoSubComments(req.params.hashed_id, (err, subComments)=>{
 
@@ -68,6 +76,13 @@ exports.get = (req, res)=>{
       })
 
       if(req.user){
+        //check if the user is the channel owner
+        if(+req.user[0].id === videoDetail.channelId){
+          isOwner = true;
+        }else{
+          isOwner = false;
+        }
+
         isSubscribed(req.user[0].id, videoDetail.channelId, (err,result)=>{
           if(err) console.log('user not exist ' ,err);
           subscribed = result[0].exists;
@@ -80,31 +95,57 @@ exports.get = (req, res)=>{
       getSubscribtionCount(videoDetail.channelId, (err, result)=>{
         console.log('subscribe ', result);
         res.render('video', {
-          subscribed,
           subscribtionCount:result[0].count,
+          commentsNumber: commentsDetails.length + subComments.length,
+          subscribed,
+          isOwner,
           videoDetail,
+          allVideos,
           commentsDetails
         })
       })
 
     })
 
-
   })
 
 }
 
 exports.postSubscribe = (req,res)=>{
-  const url = req.headers.referer.split('/').pop()
-  postSubscribe(req.user[0].id, req.params.channelId,(err, result)=>{
-    if (err){
-      removeSubscribtion(req.user[0].id, req.params.channelId, (err,result)=>{
-        subscribed = false;
-        res.redirect('/watch/'+url)
+  //if login
+  if(req.user){
+    if(req.user[0].id !== +req.params.channelId){
+      postSubscribe(req.user[0].id, req.params.channelId,(err, result)=>{
+        if (err){
+          removeSubscribtion(req.user[0].id, req.params.channelId, (err,result)=>{
+            subscribed = false;
+            res.redirect('/watch/'+videoDetail.videoHashed)
+          })
+        }else{
+          subscribed = true;
+          res.redirect('/watch/'+videoDetail.videoHashed)
+        }
       })
+
     }else{
-      subscribed = true;
-      res.redirect('/watch/'+url)
+      res.redirect('/watch/'+videoDetail.videoHashed)
     }
-  })
+  }else{
+    res.redirect('/login')
+  }
+}
+
+exports.postComment = (req, res)=>{
+  if(req.user){
+    console.log(req.user[0].id,'::', videoDetail.videoId, '::',req.body.comment);
+    insertComment(req.user[0].id, videoDetail.videoId, req.body.comment, null,(err, result)=>{
+      if(err) return console.log('error in adding the comment');
+      console.log('comment inserted');
+      res.redirect('/watch/' + videoDetail.videoHashed)
+    })
+  }else{
+    //should send a messsage teeling the user to login or hide the comment area
+    res.redirect('/login')
+  }
+
 }
