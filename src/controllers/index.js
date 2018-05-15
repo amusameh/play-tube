@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 const bcrypt = require('bcrypt');
 
 const home = require('./home');
@@ -11,21 +12,9 @@ const login = require('./login');
 const get = require('../database/query/get')
 const video = require('./video');
 
-// Get Homepage
+
+
 router.get('/', home.get);
-
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-    req.flash('error_msg','You are not logged in');
-		res.redirect('/login');
-	}
-}
-
-// Get loginpage
-
-
 router.get('/login', login.get);
 
 passport.use(new LocalStrategy(
@@ -61,14 +50,14 @@ passport.deserializeUser(function (id, done) {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+  successReturnToOrRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true
 }), (req, res) => {
   res.redirect('/');
 });
 
-router.get('/logout',ensureAuthenticated, (req, res) => {
+router.get('/logout', (req, res) => {
   req.logOut();
   req.session.cookie.maxAge = 0;
   req.session.destroy((err) => {
@@ -78,11 +67,12 @@ router.get('/logout',ensureAuthenticated, (req, res) => {
 })
 
 router.get('/watch/:hashed_id', video.get);
-router.get('/subscribe/:channelId', video.postSubscribe);
+router.get('/subscribe/:channelId', ensureLoggedIn('/login'),video.postSubscribe);
+router.post('/addComment', ensureLoggedIn('/login'),video.postComment);
 router.get('/register', register.get);
 router.post('/register', register.post);
-router.get('/import-video', ensureAuthenticated, importvideo.get);
-router.get('/import-vid-info', ensureAuthenticated, importvideo.getInfo);
-router.post('/import-vid-info', ensureAuthenticated, importvideo.post);
+router.get('/import-video', ensureLoggedIn('/login'), importvideo.get);
+router.get('/import-vid-info', ensureLoggedIn('/login'), importvideo.getInfo);
+router.post('/import-vid-info', ensureLoggedIn('/login'), importvideo.post);
 
 module.exports = router;
