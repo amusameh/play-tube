@@ -46,7 +46,7 @@ exports.post = (req, res) => {
       res.render('importvid', { css: 'import-video', importVid: true, databaseError: true, err });
     } else {
       req.flash('success_msg', 'you have imported your video succesfully');
-      res.redirect('/');
+      res.redirect(`/watch/${data.hashedId}`);
     }
   });
 }
