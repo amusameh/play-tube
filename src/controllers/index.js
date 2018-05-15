@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
@@ -19,7 +18,7 @@ function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	} else {
-    //req.flash('error_msg','You are not logged in');
+    req.flash('error_msg','You are not logged in');
 		res.redirect('/login');
 	}
 }
@@ -33,6 +32,8 @@ passport.use(new LocalStrategy(
 	function (username, password, done) {
 		get.getUserData(username, function (err, data) {
 			if (!data.length) {
+        console.log('error', err);
+
 				return done(null, false, { message: 'Unknown User' });
 			}
       user = data[0];

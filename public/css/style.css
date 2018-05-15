@@ -4,7 +4,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-    
+
 }
 
 body {
@@ -53,10 +53,6 @@ li{
     border-color: #5e99dc;
 }
 
-.hidden {
-    display: none;
-}
-
 .invisible {
   position: absolute;
   left: -10000px;
@@ -94,4 +90,25 @@ svg:not(:root) {
     content: '';
     clear: both;
     display: table;
+}
+
+.popup {
+  position: absolute;
+  transform: translate(50%,-50%);
+  top: 50%;
+  right: 50%;
+  color: green;
+  background-color: #cccc;
+  width: 550px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 2px 2px 13px -4px black;
+  border-radius: 25px;
+}
+
+.hidden {
+    display: none;
 }

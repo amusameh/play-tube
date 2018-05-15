@@ -33,7 +33,6 @@ app.engine('hbs',
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(expressValidator());
-
 app.set('port', process.env.PORT || 3000);
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -47,7 +46,6 @@ app.use(session({
   cookie: { maxAge: 900000},
   key: 'black_sail'
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -64,5 +62,10 @@ app.use(function (req, res, next) {
 });
 
 app.use(controllers);
+
+app.use((req, res, next) => {
+  res.locals.info = req.flash('info')
+  next()
+})
 
 module.exports = app;

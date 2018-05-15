@@ -41,7 +41,6 @@ exports.get = (req, res)=>{
       }
       return obj
     })
-    // console.log(commentsDetails);
 
     getVideoSubComments(req.params.hashed_id, (err, subComments)=>{
 
@@ -80,6 +79,8 @@ exports.get = (req, res)=>{
       getSubscribtionCount(videoDetail.channelId, (err, result)=>{
         console.log('subscribe ', result);
         res.render('video', {
+          css: 'video',
+          js: 'mediaPlayer',
           subscribed,
           subscribtionCount:result[0].count,
           videoDetail,
