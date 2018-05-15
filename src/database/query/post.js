@@ -20,6 +20,14 @@ const postImport = (data, cb) => {
   })
 }
 
+const insertComment = (userId, videoId, content, parentID, cb)=>{
+  const sql = {
+    text: 'INSERT INTO comments (user_id, video_id, content, parent_id) VALUES ($1, $2, $3, $4)',
+    values: [userId, videoId, content, parentID]
+  }
+  executeQuery(sql, cb);
+}
+
 const postSubscribe = (userId, channelId, cb)=>{
   const sql = {
     text:'INSERT INTO subscribe (user_id, channel_id, deleted) VALUES ($1, $2, DEFAULT);',
@@ -51,5 +59,6 @@ module.exports = {
     addUser,
     postImport,
     postSubscribe,
-    removeSubscribtion
+    removeSubscribtion,
+    insertComment
   };

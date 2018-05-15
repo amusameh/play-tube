@@ -16,6 +16,14 @@ const getUserById = (id, cb)=>{
   executeQuery(sql, cb);
 }
 
+const getAllVideos = (cb)=>{
+  //should have some modifications depending on what you want to return
+  const sql ={
+    text:'SELECT username , videos.* FROM videos INNER JOIN users ON videos.user_id = users.id',
+  }
+  executeQuery(sql,cb);
+}
+
 const getVideoData = (hashed_id, cb)=>{
   const sql = {
     text:'SELECT username, videos.* FROM videos INNER JOIN users ON videos.user_id = users.id WHERE hashed_id = $1',
@@ -76,5 +84,6 @@ module.exports = {
   getVideoSubComments,
   getUserById,
   getSubscribtionCount,
-  isSubscribed
+  isSubscribed,
+  getAllVideos
  };
