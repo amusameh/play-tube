@@ -3,7 +3,7 @@ const expressValidator = require('express-validator');
 const post = require('./../database/query/post');
 
 exports.get = (req, res) => {
-  res.render('register');
+  res.render('register', { css: 'register' });
 };
 
 exports.post = (req, res) => {
@@ -20,6 +20,7 @@ exports.post = (req, res) => {
   const errors = req.validationErrors();
   if (errors) {
     res.render('register', {
+      css: 'register',
       title: 'Registration Error',
       errors
     });

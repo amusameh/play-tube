@@ -1,6 +1,10 @@
+body {
+  overflow: auto;
+}
+
 #wave {
     position: absolute;
-    top: 139px;
+    top: 305px;
     transform: rotate(180deg);
     z-index: -9;
 }
@@ -31,23 +35,24 @@
 }
 
 .import-btn {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    width: 140px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     background: #38b1f6;
     padding: 15px 60px;
-    margin: 0 5px 0 0px;
+    margin: 0 2px 0 0px;
     display: inline-block;
     position: absolute;
-    right: 45px;
+    right: 0px;
     top: 2px;
-
+    line-height: 1.25;
 }
-.import--video  input {
+.url-input {
     display: inline-block;
-    margin: 0 0 0 30px;
+    margin: 0;
     padding: 15px 50px;
     border-radius: 20px;
-    width: 80%;
+    width: 100%;
     outline: none;
 }
 
@@ -71,6 +76,8 @@ h4,h5,h1{
 }
 
 .import-video-url {
+    width: 80%;
+    margin: 0 auto;
     margin-top: 100px;
     position: relative;
 }
@@ -84,7 +91,8 @@ h4,h5,h1{
 
 .import--video-details {
     width: 80vw;
-    height: 60vh;
+    height: auto;
+    min-height: 60vh;
     background: #1c1c1c;
     margin: -5vh auto;
     z-index: 999999;

@@ -21,6 +21,8 @@ passport.use(new LocalStrategy(
 	function (username, password, done) {
 		get.getUserData(username, function (err, data) {
 			if (!data.length) {
+        console.log('error', err);
+
 				return done(null, false, { message: 'Unknown User' });
 			}
       user = data[0];

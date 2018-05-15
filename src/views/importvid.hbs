@@ -9,21 +9,15 @@
   <div class="import--video {{#if getValues}}hidden{{/if}}">
       <i class="fas fa-cloud-download-alt"></i>
       <form action="/import-vid-info" method="GET" class="import-video-url">
-        <input type="text" name="videoUrl">
+        <input class="url-input" type="text" name="videoUrl">
         <i class="fas fa-link"></i>
         <label for="import">YouTube</label>
         <input class="btn import-btn" id="import" type="submit" value="Upload">
       </form>
   </div>
-  {{#if databaseError}}
-    <p>{{err}}</p>
-  {{/if}}
-  {{#if wrongLink}}
-  <p class="error-msg">invalid link,, please check your link</p>
-  {{/if}}
-  {{#if wrongService}}
-  <p class="error-msg">invalid, only YouTube videos are allowed for now</p>
-  {{/if}}
+  {{#if databaseError}}<p class="error-msg">{{err}}</p>{{/if}}
+  {{#if wrongLink}}<p class="error-msg">invalid link,, please check your link</p>{{/if}}
+  {{#if wrongService}}<p class="error-msg">invalid, only YouTube videos are allowed for now</p>{{/if}}
   {{#if getValues}}
   <div class="import--video-details">
     <i class="fas fa-cloud-download-alt"></i>
@@ -32,6 +26,8 @@
       <i class="fas fa-link"></i>
       <label for="video-title">Video Title</label>
       <input type="text" name="title" id="video-title" value="{{data.title}}">
+      <label for="video_thumb">Thumbnail</label>
+      <input type="text" name="posterUrl" id="video_thumb" value="{{data.thumbnails.default.url}}">
       <label for="video-description">Video Description</label>
       <textarea name="description" id="video-description">{{data.description}}</textarea>
       <label for="video-category">Category</label>
@@ -55,3 +51,4 @@
     </form>
   </div>
   {{/if}}
+</div>

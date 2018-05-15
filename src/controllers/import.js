@@ -9,18 +9,13 @@ let videoSrc = '';
 let linkInfo = '';
 
 exports.get = (req, res) => {
-  res.render('importvid', { importVid: true });
+  res.render('importvid', { css: 'import-video' });
 }
 
 exports.getInfo = (req, res) => {
-  if(Object.keys(req.query).length > 0) {
-    linkInfo = getVideoId((req.query.videoUrl).toString());
-  } else {
-    linkInfo = getVideoId('req.query is empty');
-    console.log('aaaaaaa')
-  }
+  linkInfo = getVideoId((req.query.videoUrl).toString());
   if (linkInfo.service !== 'youtube') {
-    res.render('importvid', { importVid: true, wrongService: true});
+    res.render('importvid', { css: 'import-video', importVid: true, wrongService: true });
   } else {
     videoSrc = linkInfo.service;
     const uri = `https://www.googleapis.com/youtube/v3/videos?id=${linkInfo.id}&key=${process.env.API_KEY}&part=snippet&fields=items/snippet(title,description,thumbnails)`
@@ -28,32 +23,29 @@ exports.getInfo = (req, res) => {
     request.get(uri, (err, response, body) => {
       body = JSON.parse(body)
       if (err) {
-        console.log('importinfo error', err);
+        console.error('importinfo error', err);
+        res.render('error');
       } else if (response.statusCode === 200 && body.items.length > 0) {
         const data = body.items[0].snippet;
         videoUrl = req.query.videoUrl;
-        res.render('importvid', { data, importVid: true, getValues: true, videoUrl});
+        res.render('importvid', { css: 'import-video', data, importVid: true, getValues: true, videoUrl });
       } else {
-        console.log('Invalid youtube link status code', response.statusCode);
-        console.log('body', body);
-        res.render('importvid', { importVid: true, wrongLink: true });
+        res.render('importvid', { css: 'import-video', importVid: true, wrongLink: true });
       }
     });
   }
 }
+
 exports.post = (req, res) => {
-  console.log(videoUrl, 'vidURl'); // we can check if user changed the vidUrl
   const data = req.body;
-  data.source = videoSrc;
   data.hashedId = generatevidId();
-  data.userId = 1;  //get the user id from the token
-  console.log(data);
+  data.userId = req.user[0].id;
   postImport(data, (err, result) => {
     if (err) {
-      console.log(err, 'posterr');
-      res.render('importvid', { importVid: true, databaseError: true, err });
+      console.error(err, 'post_error');
+      res.render('importvid', { css: 'import-video', importVid: true, databaseError: true, err });
     } else {
-      //popUp
+      req.flash('success_msg', 'you have imported your video succesfully');
       res.redirect('/');
     }
   });
